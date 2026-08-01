@@ -580,15 +580,20 @@ button,input{font:inherit;color:inherit}
    ========================================================= */
 
 /* ---------- 3대 핵심 가치 (요청서 2번) ---------- */
+/* 회사가 커가는 순서. 링크가 아니므로 버튼처럼 보이지 않게 둔다 */
 .flow{
-  margin:clamp(30px,3.2vw,60px) 0 0;display:flex;flex-wrap:wrap;justify-content:flex-start;
-  align-items:center;gap:clamp(8px,0.9vw,18px);
+  margin:clamp(22px,2.2vw,40px) 0 0;display:flex;flex-wrap:wrap;align-items:center;
+  gap:clamp(10px,1vw,18px) clamp(14px,1.4vw,26px);
 }
 .flow li{
-  position:relative;display:inline-flex;align-items:center;
-  font-size:clamp(12.5px,0.94vw,18px);font-weight:700;color:var(--txt-sub);letter-spacing:-.03em;
-  padding:clamp(9px,0.8vw,15px) clamp(14px,1.25vw,24px);
-  border:1px solid var(--line);border-radius:100px;background:#fff;
+  display:inline-flex;align-items:center;
+  font-size:clamp(14px,1.09vw,21px);font-weight:700;letter-spacing:-.03em;color:var(--txt);
+}
+.flow li:not(:last-child)::after{
+  content:"";margin-left:clamp(14px,1.4vw,26px);
+  width:clamp(7px,0.55vw,10px);height:clamp(7px,0.55vw,10px);
+  border-top:2px solid var(--gold);border-right:2px solid var(--gold);
+  transform:rotate(45deg);
 }
 
 
@@ -772,7 +777,7 @@ button,input{font:inherit;color:inherit}
 }
 
 @media (max-width:860px){
-  .flow{gap:8px}
+  .flow{gap:8px 14px}
   .case__tabs{grid-template-columns:repeat(2,1fr)}
   .case__tab{padding:14px 16px}
 
