@@ -184,8 +184,10 @@
 
     <div class="values">
       <article class="value reveal">
-        <div class="value__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6.2" rx="7.2" ry="2.9"/><path d="M4.8 6.2v5.3c0 1.6 3.2 2.9 7.2 2.9s7.2-1.3 7.2-2.9V6.2"/><path d="M4.8 11.5v5.3c0 1.6 3.2 2.9 7.2 2.9s7.2-1.3 7.2-2.9v-5.3"/></svg></div>
-        <p class="value__no">01</p>
+        <div class="value__head">
+          <div class="value__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6.2" rx="7.2" ry="2.9"/><path d="M4.8 6.2v5.3c0 1.6 3.2 2.9 7.2 2.9s7.2-1.3 7.2-2.9V6.2"/><path d="M4.8 11.5v5.3c0 1.6 3.2 2.9 7.2 2.9s7.2-1.3 7.2-2.9v-5.3"/></svg></div>
+          <p class="value__no">01</p>
+        </div>
         <h3 class="value__title">자금을 확보합니다</h3>
         <p class="value__desc">지금 조달 가능한 자금이 무엇인지 먼저 확인하고, 더 좋은 조건으로 받을 수 있는 순서를 정합니다.</p>
         <p class="value__tagslabel">관련 서비스</p>
@@ -197,8 +199,10 @@
       </article>
 
       <article class="value reveal" data-delay="1">
-        <div class="value__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3.5 17.5L9 12l3.5 3.5L20.5 7"/><path d="M15.5 7h5v5"/></svg></div>
-        <p class="value__no">02</p>
+        <div class="value__head">
+          <div class="value__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3.5 17.5L9 12l3.5 3.5L20.5 7"/><path d="M15.5 7h5v5"/></svg></div>
+          <p class="value__no">02</p>
+        </div>
         <h3 class="value__title">기업의 구조와 매출을 <br>성장시킵니다</h3>
         <p class="value__desc">자금이 들어온 뒤가 더 중요합니다. 회사 구조를 정리하고 팔 곳을 넓혀 다음 단계로 넘어갑니다.</p>
         <p class="value__tagslabel">관련 서비스</p>
@@ -210,8 +214,10 @@
       </article>
 
       <article class="value reveal" data-delay="2">
-        <div class="value__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 20.5h18"/><path d="M5.5 20.5V9l6.5-4.5L18.5 9v11.5"/><path d="M10 20.5v-5h4v5"/></svg></div>
-        <p class="value__no">03</p>
+        <div class="value__head">
+          <div class="value__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 20.5h18"/><path d="M5.5 20.5V9l6.5-4.5L18.5 9v11.5"/><path d="M10 20.5v-5h4v5"/></svg></div>
+          <p class="value__no">03</p>
+        </div>
         <h3 class="value__title">기업의 자산가치를 <br>높입니다</h3>
         <p class="value__desc">매월 나가던 임대료를 자산으로 바꿉니다. 무리하지 않는 선에서 취득 시점과 방법을 잡습니다.</p>
         <p class="value__tagslabel">관련 서비스</p>
@@ -591,28 +597,23 @@
 <!-- ─────────────── 플로팅 연락 버튼 ─────────────── -->
 <div class="float" id="float">
   <!-- TODO:TEL   href="tel:0212345678" 로 교체 -->
-  <a class="float__btn float__btn--tel" href="#" data-pending="전화번호 준비중" aria-label="전화 상담">
+  <a class="float__btn float__btn--tel" href="#" data-pending="전화번호 준비중" data-tip="" aria-label="전화 상담">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
-    <span class="float__tip">전화 상담</span>
   </a>
   <!-- TODO:KAKAO href="http://pf.kakao.com/_채널ID" 로 교체 -->
-  <a class="float__btn float__btn--kakao" href="#" data-pending="카카오톡 채널 준비중" aria-label="카카오톡 상담">
+  <a class="float__btn float__btn--kakao" href="#" data-pending="카카오톡 채널 준비중" data-tip="" aria-label="카카오톡 상담">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C6.5 3 2 6.5 2 10.8c0 2.8 1.9 5.2 4.7 6.6-.2.7-.7 2.7-.8 3.1-.1.6.2.6.5.4.2-.1 2.7-1.8 3.8-2.5.6.1 1.2.1 1.8.1 5.5 0 10-3.5 10-7.7S17.5 3 12 3z"/></svg>
-    <span class="float__tip">카카오톡 상담</span>
   </a>
   <!-- TODO:INSTA href="https://instagram.com/계정" 로 교체 -->
-  <a class="float__btn float__btn--insta" href="#" data-pending="인스타그램 준비중" aria-label="인스타그램">
+  <a class="float__btn float__btn--insta" href="#" data-pending="인스타그램 준비중" data-tip="" aria-label="인스타그램">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 1 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.846-10.405a1.441 1.441 0 0 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg>
-    <span class="float__tip">인스타그램</span>
   </a>
   <!-- TODO:FACEBOOK href="https://facebook.com/페이지주소" 로 교체 -->
-  <a class="float__btn float__btn--facebook" href="#" data-pending="페이스북 준비중" aria-label="페이스북">
+  <a class="float__btn float__btn--facebook" href="#" data-pending="페이스북 준비중" data-tip="" aria-label="페이스북">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg>
-    <span class="float__tip">페이스북</span>
   </a>
   <a class="float__btn float__btn--apply" href="#apply" data-cta="float" aria-label="1차 진단 신청">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.2 4.6H7.6A1.6 1.6 0 0 0 6 6.2v13.2a1.6 1.6 0 0 0 1.6 1.6h8.8a1.6 1.6 0 0 0 1.6-1.6V6.2a1.6 1.6 0 0 0-1.6-1.6h-1.6"/><rect x="9.2" y="3" width="5.6" height="3.2" rx="1.1"/><path d="M9.4 13.2l1.9 1.9 3.6-4.2"/></svg>
-    <span class="float__tip">1차 진단 신청</span>
   </a>
 </div>
 

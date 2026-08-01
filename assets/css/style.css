@@ -476,20 +476,29 @@ button,input{font:inherit;color:inherit}
 }
 .float__btn svg{width:24px;height:24px;fill:currentColor}
 .float__btn:hover{transform:translateY(-3px) scale(1.06)}
-.float__btn--tel{background:var(--blue)}
-.float__btn--kakao{background:#fee500;color:#000}
-.float__btn--facebook{background:#1877f2;color:#fff}
-.float__btn--insta{background:linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5)}
+.float__btn--tel{background:var(--blue);--tipbg:var(--blue);--tipfg:#fff}
+.float__btn--kakao{background:#fee500;color:#000;--tipbg:#fee500;--tipfg:#000}
+.float__btn--facebook{background:#1877f2;color:#fff;--tipbg:#1877f2;--tipfg:#fff}
+.float__btn--insta{background:linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5);--tipbg:#c9256b;--tipfg:#fff}
 .float__btn--apply{background:var(--navy);border:1px solid rgba(255,255,255,.22)}
 .float__btn--apply svg{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.float__tip{
-  position:absolute;right:66px;top:50%;transform:translateY(-50%) translateX(8px);
-  background:rgba(3,15,29,.94);color:#fff;font-size:12.5px;font-weight:600;
-  padding:8px 13px;border-radius:6px;white-space:nowrap;
-  opacity:0;pointer-events:none;transition:opacity .22s,transform .22s var(--ease);
+/* 호버하면 버튼과 이어진 알약이 왼쪽으로 나오고 실제 연락처가 뜬다 (bnihero 방식).
+   data-tip 이 비어 있으면 아무것도 뜨지 않는다 = 값을 아직 못 받은 상태 */
+.float__btn{z-index:1}
+.float__btn::after{
+  content:attr(data-tip);
+  position:absolute;right:calc(100% + 12px);top:50%;z-index:2;
+  height:46px;display:flex;align-items:center;padding:0 26px 0 22px;
+  border-radius:100px;white-space:nowrap;
+  background:var(--tipbg,#0f1720);color:var(--tipfg,#fff);
+  font-size:15.5px;font-weight:800;letter-spacing:-.02em;
+  box-shadow:0 10px 26px rgba(0,0,0,.32);
+  opacity:0;pointer-events:none;
+  transform:translateY(-50%) translateX(14px);
+  transition:opacity .24s var(--ease),transform .24s var(--ease);
 }
-.float__btn:hover .float__btn--apply svg{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.float__tip{opacity:1;transform:translateY(-50%) translateX(0)}
+.float__btn:hover::after{opacity:1;transform:translateY(-50%) translateX(0)}
+.float__btn[data-tip=""]::after,.float__btn:not([data-tip])::after{display:none}
 .float__btn[data-pending]{filter:grayscale(.15)}
 
 /* ================= 반응형 ================= */
@@ -559,7 +568,7 @@ button,input{font:inherit;color:inherit}
   .float__btn{width:48px;height:48px}
   .float__btn svg{width:21px;height:21px}
   .float__btn--apply svg{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.float__tip{display:none}
+.float__btn::after{display:none}
 }
 
 @media (max-width:339px){
@@ -589,23 +598,20 @@ button,input{font:inherit;color:inherit}
   padding:clamp(28px,2.4vw,46px) clamp(22px,2vw,38px) clamp(24px,2vw,38px);
   display:flex;flex-direction:column;
 }
+.value__head{display:flex;align-items:center;gap:clamp(12px,1vw,18px);margin-bottom:clamp(16px,1.4vw,26px)}
 .value__icon{
-  width:clamp(42px,3.1vw,58px);height:clamp(42px,3.1vw,58px);border-radius:12px;
-  background:#fff;border:1px solid rgba(200,151,58,.45);display:grid;place-items:center;
-  margin-bottom:clamp(14px,1.2vw,22px);
+  width:clamp(44px,3.2vw,60px);height:clamp(44px,3.2vw,60px);border-radius:12px;flex:none;
+  background:rgba(0,140,255,.08);border:1px solid rgba(0,140,255,.22);display:grid;place-items:center;
 }
-.value__icon svg{width:54%;height:54%;fill:none;stroke:var(--gold);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.value__no{
-  position:absolute;top:clamp(14px,1.2vw,24px);right:clamp(16px,1.5vw,28px);
-  color:rgba(200,151,58,.22);font-weight:800;font-size:clamp(40px,3.6vw,68px);letter-spacing:-.04em;line-height:1;
-}
+.value__icon svg{width:54%;height:54%;fill:none;stroke:var(--blue);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.value__no{color:#98a3b2;font-weight:800;font-size:clamp(15px,1.14vw,21px);letter-spacing:.04em}
 /* 제목이 한 줄인 카드와 두 줄인 카드의 본문 시작선을 맞춘다 */
 .value__title{margin-top:clamp(12px,0.85vw,16px);font-size:clamp(18px,1.39vw,25.5px);font-weight:800;letter-spacing:-.03em;line-height:1.42;min-height:2.84em}
 /* 설명 길이가 달라도 아래 태그 줄이 같은 높이에서 시작하도록 */
-.value__desc{margin-top:clamp(12px,0.9vw,17px);font-size:clamp(13px,0.94vw,18px);line-height:1.8;color:var(--txt-sub);min-height:5.4em}
+.value__desc{margin-top:clamp(12px,0.9vw,17px);font-size:clamp(13px,0.94vw,18px);line-height:1.8;color:var(--txt-sub)}
 .value__tagslabel{
-  margin-top:auto;padding-top:clamp(20px,1.7vw,32px);
-  font-size:clamp(11.5px,0.8vw,15px);font-weight:700;letter-spacing:.02em;color:var(--gold);
+  margin-top:auto;padding-top:clamp(20px,1.7vw,32px);border-top:1px solid var(--line);
+  font-size:clamp(11.5px,0.8vw,15px);font-weight:700;letter-spacing:.02em;color:#8b95a3;
 }
 .value__tags{margin-top:clamp(9px,0.8vw,14px);display:flex;flex-wrap:wrap;gap:8px}
 .value__tags a{
@@ -760,7 +766,6 @@ button,input{font:inherit;color:inherit}
   .values{grid-template-columns:1fr;gap:14px}
   .value__title br{display:none}
   .value__title{min-height:0}
-  .value__desc{min-height:0}
   .checks{grid-template-columns:1fr}
   .need{grid-template-columns:1fr}
   .siblings{grid-template-columns:repeat(2,1fr)}
