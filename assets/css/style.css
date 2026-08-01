@@ -24,6 +24,10 @@
   --blue:#008cff;
   --blue-deep:#054680;
   --blue-soft:#3ba3ff;
+  /* 로고에서 뽑은 보조색. 파랑=행동(버튼·링크·활성), 골드=서수·라벨·장식 으로 역할을 나눈다 */
+  --gold:#c8973a;
+  --gold-soft:#e0b05c;
+  --gold-dim:rgba(200,151,58,.14);
   --white:#fff;
   --grey:#f6f7f9;
   --line:#e6e9ee;
@@ -175,6 +179,38 @@ button,input{font:inherit;color:inherit}
 .body--center{text-align:center}
 .body--left{text-align:left}
 
+/* 사진이 깔리는 섹션 공통 */
+.sec--photo,.band--photo{position:relative;overflow:hidden}
+.sec--photo>.container,.band--photo>.container{position:relative;z-index:1}
+.sec__bg,.band__bg{
+  position:absolute;inset:0;
+  background-position:center;background-size:cover;background-repeat:no-repeat;
+}
+.sec__bg::after,.band__bg::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(3,15,29,.9) 0%,rgba(3,15,29,.8) 45%,rgba(3,15,29,.94) 100%);
+}
+.band--photo .band__bg{
+  background-image:url("../img/band-city.jpg");
+  background-image:image-set(url("../img/band-city.webp") type("image/webp"),url("../img/band-city.jpg") type("image/jpeg"));
+}
+.band--photo .band__bg::after{
+  background:linear-gradient(180deg,rgba(3,15,29,.86) 0%,rgba(3,15,29,.74) 42%,rgba(3,15,29,.92) 100%);
+}
+.sec--photo .sec__bg{
+  background-image:url("../img/form-city.jpg");
+  background-image:image-set(url("../img/form-city.webp") type("image/webp"),url("../img/form-city.jpg") type("image/jpeg"));
+}
+
+/* 접근 방식 도입부: 글 + 사진 좌우 분할 */
+.lead2{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,3.6vw,72px);align-items:center}
+.lead2__fig{margin:0;border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+.lead2__fig img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/2}
+@media (max-width:900px){
+  .lead2{grid-template-columns:1fr;gap:26px}
+  .lead2__fig{order:-1}
+}
+
 /* 접근 방식 안에 이어지는 3대 핵심 가치 */
 .approach__split{
   margin-top:clamp(48px,4.6vw,92px);padding-top:clamp(44px,4.2vw,84px);
@@ -191,7 +227,7 @@ button,input{font:inherit;color:inherit}
   transition:border-color .3s,transform .3s var(--ease),background .3s;
 }
 .worry:hover{border-color:rgba(0,140,255,.55);transform:translateX(6px);background:rgba(0,140,255,.07)}
-.worry__no{color:var(--blue);font-weight:800;font-size:clamp(13px,1.12vw,21px);flex:none;line-height:1.7}
+.worry__no{color:var(--gold-soft);font-weight:800;font-size:clamp(13px,1.12vw,21px);flex:none;line-height:1.7}
 .worry__txt{font-size:clamp(14.5px,1.17vw,22px);color:rgba(255,255,255,.92);line-height:1.7}
 .worries__closing{
   margin-top:clamp(42px,4.6vw,88px);text-align:center;font-size:clamp(16px,1.55vw,30px);
@@ -227,7 +263,14 @@ button,input{font:inherit;color:inherit}
   transition:transform .32s var(--ease),box-shadow .32s var(--ease);
 }
 .card:hover{transform:translateY(-8px);box-shadow:0 26px 60px rgba(0,0,0,.45)}
-.card__no{color:var(--blue);font-weight:800;font-size:clamp(15px,1.18vw,22px);letter-spacing:.02em}
+.card__icon{
+  width:clamp(46px,3.4vw,64px);height:clamp(46px,3.4vw,64px);border-radius:12px;
+  display:grid;place-items:center;margin-bottom:clamp(16px,1.3vw,26px);
+  background:var(--gold-dim);border:1px solid rgba(200,151,58,.32);
+}
+.card__icon svg{width:56%;height:56%;fill:none;stroke:var(--gold);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.card:hover .card__icon{background:rgba(200,151,58,.2);border-color:rgba(200,151,58,.5)}
+.card__no{color:var(--gold);font-weight:800;font-size:clamp(15px,1.18vw,22px);letter-spacing:.02em}
 .card__title{margin-top:clamp(12px,0.85vw,16px);font-size:clamp(17px,1.32vw,25.5px);font-weight:800;letter-spacing:-.03em}
 .card__lead{margin-top:clamp(12px,0.9vw,17px);font-size:clamp(14px,0.97vw,18.7px);font-weight:600;line-height:1.72;color:#1a2430}
 .card__desc{margin-top:clamp(12px,0.9vw,17px);font-size:clamp(12.5px,0.85vw,16.3px);line-height:1.72;color:#6b7686}
@@ -473,7 +516,7 @@ button,input{font:inherit;color:inherit}
   transition:transform .32s var(--ease),box-shadow .32s var(--ease),border-color .32s;
 }
 .value:hover{transform:translateY(-6px);border-color:rgba(0,140,255,.4);box-shadow:0 22px 50px rgba(3,15,29,.1)}
-.value__no{color:var(--blue);font-weight:800;font-size:clamp(15px,1.18vw,22px);letter-spacing:.02em}
+.value__no{color:var(--gold);font-weight:800;font-size:clamp(15px,1.18vw,22px);letter-spacing:.02em}
 .value__title{margin-top:clamp(12px,0.85vw,16px);font-size:clamp(18px,1.39vw,25.5px);font-weight:800;letter-spacing:-.03em;line-height:1.42}
 .value__desc{margin-top:clamp(12px,0.9vw,17px);font-size:clamp(13px,0.94vw,18px);line-height:1.8;color:var(--txt-sub)}
 .value__tags{margin-top:auto;padding-top:clamp(22px,1.8vw,34px);display:flex;flex-wrap:wrap;gap:8px}
@@ -534,7 +577,7 @@ button,input{font:inherit;color:inherit}
   display:grid;place-items:center;
 }
 .subhero__icon svg{width:56%;height:56%;fill:none;stroke:var(--blue);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.subhero__no{margin-top:clamp(20px,1.8vw,34px);color:var(--blue);font-weight:800;font-size:clamp(13px,0.94vw,18px);letter-spacing:.06em}
+.subhero__no{margin-top:clamp(20px,1.8vw,34px);color:var(--gold-soft);font-weight:800;font-size:clamp(13px,0.94vw,18px);letter-spacing:.06em}
 .subhero__title{margin-top:10px;font-size:clamp(26px,2.8vw,54px);font-weight:800;letter-spacing:-.035em;line-height:1.3}
 .subhero__lead{margin-top:clamp(18px,1.6vw,30px);font-size:clamp(14px,1.1vw,21px);line-height:1.85;color:rgba(255,255,255,.8);max-width:min(760px,100%)}
 
