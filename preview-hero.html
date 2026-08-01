@@ -578,14 +578,18 @@
   .hswitch button.on{background:#008cff}
   .hswitch .lab{color:rgba(255,255,255,.55);font-size:12px;font-weight:600;align-self:center;padding:0 6px}
   @media (max-width:860px){ .hswitch{bottom:76px;flex-wrap:nowrap;gap:4px;padding:6px;width:auto;left:8px;right:8px;transform:none;justify-content:space-between}
-    .hswitch button{padding:9px 8px;font-size:11.5px;flex:1 1 0;white-space:nowrap}
+    .hswitch{overflow-x:auto;-webkit-overflow-scrolling:touch;justify-content:flex-start}
+    .hswitch button{padding:9px 10px;font-size:11.5px;flex:0 0 auto;white-space:nowrap}
     .hswitch .lab{display:none} }
 </style>
 <div class="hswitch" id="hswitch">
   <span class="lab">히어로 사진</span>
-  <button data-img="_cand/hA.webp" data-light="1">1 한강 항공</button>
-  <button data-img="_cand/hK.webp" data-light="1">2 남산 도심</button>
-  <button data-img="_cand/hC.webp" data-light="1">3 도심 파노라마</button>
+  <button data-img="_cand/n1.webp" data-light="1">1 도시+바다</button>
+  <button data-img="_cand/n5.webp" data-light="1">2 유리 사옥</button>
+  <button data-img="_cand/n3.webp" data-light="1">3 산업단지</button>
+  <button data-img="_cand/n4.webp" data-light="1">4 물류센터</button>
+  <button data-img="_cand/n2.webp" data-light="1">5 항만·수출</button>
+  <button data-img="_cand/n6.webp" data-light="1">6 오피스 로비</button>
   <button data-img="" data-light="">지금 (야경)</button>
 </div>
 <script>
