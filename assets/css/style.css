@@ -296,16 +296,17 @@ button,input{font:inherit;color:inherit}
 .card__more:hover span{transform:translateX(6px)}
 
 /* ================= 컨설턴트 ================= */
-.profile{margin-top:clamp(38px,4.6vw,88px);display:grid;grid-template-columns:340px 1fr;gap:70px;align-items:start}
-.profile__photo{overflow:hidden;border-radius:4px;background:var(--grey)}
-.profile__photo img{width:100%;transition:transform .8s var(--ease)}
+.profile{margin-top:clamp(38px,4.6vw,88px);display:grid;grid-template-columns:clamp(280px,24vw,360px) 1fr;gap:clamp(40px,4vw,72px);align-items:stretch}
+.profile__photo{overflow:hidden;border-radius:8px;background:var(--grey);min-height:100%}
+.profile__photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
 .profile__title{font-size:clamp(20px,2.15vw,41px);font-weight:800;letter-spacing:-.035em;line-height:1.42}
 .profile__txt{margin-top:clamp(20px,1.8vw,34px);font-size:clamp(15px,1.14vw,22px);line-height:1.95;color:var(--txt-sub)}
-.tags{margin-top:38px;display:flex;flex-wrap:wrap;gap:10px}
+.tags{margin-top:clamp(26px,2.4vw,44px);display:flex;flex-wrap:wrap;gap:8px}
 /* 사이트의 다른 칩(협업 분야·서비스 태그)과 같은 알약 형태로 맞춘다 */
 .tag{
-  background:var(--navy);color:#fff;font-size:clamp(13px,0.94vw,18px);font-weight:600;
-  padding:clamp(9px,0.8vw,15px) clamp(15px,1.35vw,26px);border-radius:100px;letter-spacing:-.02em;
+  background:var(--navy);color:#fff;font-size:clamp(12.5px,0.83vw,16px);font-weight:600;
+  padding:clamp(8px,0.7vw,13px) clamp(13px,1.1vw,21px);border-radius:100px;letter-spacing:-.02em;
+  white-space:nowrap;
 }
 
 /* ================= 선언 배너 ================= */
@@ -335,7 +336,7 @@ button,input{font:inherit;color:inherit}
 }
 
 /* ================= 사례 ================= */
-.case{margin-top:clamp(40px,5vw,96px);display:grid;grid-template-columns:300px 1fr;gap:40px;align-items:start}
+.case{margin-top:clamp(40px,5vw,96px);display:grid;grid-template-columns:1fr;gap:clamp(16px,1.6vw,28px)}
 .case__label{font-size:clamp(17px,1.32vw,25px);font-weight:700;letter-spacing:-.03em}
 .case__label span{color:var(--blue);font-weight:800;margin-right:10px}
 .case__rows{display:flex;flex-direction:column;gap:12px}
@@ -595,9 +596,9 @@ button,input{font:inherit;color:inherit}
 }
 
 /* ---------- 사례 탭 (요청서 10번) ---------- */
-.case__tabs{display:flex;flex-direction:column;gap:10px}
+.case__tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,1vw,16px)}
 .case__tab{
-  display:flex;flex-direction:column;gap:6px;text-align:left;cursor:pointer;
+  display:flex;flex-direction:column;gap:5px;text-align:left;cursor:pointer;
   padding:clamp(16px,1.4vw,27px) clamp(18px,1.6vw,30px);
   background:transparent;border:1px solid rgba(255,255,255,.13);border-radius:8px;
   color:rgba(255,255,255,.62);font-weight:700;letter-spacing:-.03em;
@@ -734,8 +735,8 @@ button,input{font:inherit;color:inherit}
 
 @media (max-width:860px){
   .flow{gap:8px}
-  .case__tabs{flex-direction:row;flex-wrap:wrap}
-  .case__tab{flex:1 1 auto;min-width:calc(50% - 5px);padding:14px 16px}
+  .case__tabs{grid-template-columns:repeat(2,1fr)}
+  .case__tab{padding:14px 16px}
 
   .bottombar{
     display:flex;position:fixed;left:0;right:0;bottom:0;z-index:95;gap:8px;
