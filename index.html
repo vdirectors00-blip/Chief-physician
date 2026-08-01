@@ -351,24 +351,24 @@
 
     <div class="case reveal">
       <div class="case__tabs" role="tablist">
-        <button type="button" class="case__tab is-active" data-case="01" aria-selected="true"><span>CASE 01</span>정책자금 및 기업인증</button>
-        <button type="button" class="case__tab" data-case="02" aria-selected="false"><span>CASE 02</span>법인전환 및 수출</button>
-        <button type="button" class="case__tab" data-case="03" aria-selected="false"><span>CASE 03</span>사옥·공장 매입</button>
+        <button type="button" role="tab" class="case__tab is-active" data-case="01" aria-selected="true" id="caseTab01" aria-controls="casePanel01" tabindex="0"><span>CASE 01</span>정책자금 및 기업인증</button>
+        <button type="button" role="tab" class="case__tab" data-case="02" aria-selected="false" id="caseTab02" aria-controls="casePanel02" tabindex="-1"><span>CASE 02</span>법인전환 및 수출</button>
+        <button type="button" role="tab" class="case__tab" data-case="03" aria-selected="false" id="caseTab03" aria-controls="casePanel03" tabindex="-1"><span>CASE 03</span>사옥·공장 매입</button>
       </div>
 
-      <dl class="case__rows" data-case="01">
+      <dl class="case__rows" data-case="01" role="tabpanel" id="casePanel01" aria-labelledby="caseTab01">
           <div class="case__row"><dt>기업의 상황</dt><dd>기술력은 있었지만 담보력이 부족하여 필요한 운전자금 확보에 어려움을 겪고 있던 제조기업</dd></div>
           <div class="case__row"><dt>핵심 진단</dt><dd>단순 금융기관 대출보다 기업의 기술성과 연구개발 역량을 객관적으로 보여줄 수 있는 준비가 선행되어야 한다고 판단</dd></div>
           <div class="case__row"><dt>실행 전략</dt><dd>기업부설연구소 및 관련 기업인증을 검토하고 기술금융과 정책자금 연계 전략 수립</dd></div>
           <div class="case__row"><dt>결과</dt><dd>기업부설연구소 인정과 정책자금 연계까지 진행했습니다. 구체적인 조달 금액과 인증 결과는 기업 동의를 받은 범위에서 상담 시 안내드립니다.</dd></div>
       </dl>
-      <dl class="case__rows is-hidden" data-case="02">
+      <dl class="case__rows is-hidden" data-case="02" role="tabpanel" id="casePanel02" aria-labelledby="caseTab02">
           <div class="case__row"><dt>기업의 상황</dt><dd class="is-empty">자료 확정 후 기재</dd></div>
           <div class="case__row"><dt>핵심 진단</dt><dd class="is-empty">자료 확정 후 기재</dd></div>
           <div class="case__row"><dt>실행 전략</dt><dd class="is-empty">자료 확정 후 기재</dd></div>
           <div class="case__row"><dt>결과</dt><dd class="is-empty">자료 확정 후 기재</dd></div>
       </dl>
-      <dl class="case__rows is-hidden" data-case="03">
+      <dl class="case__rows is-hidden" data-case="03" role="tabpanel" id="casePanel03" aria-labelledby="caseTab03">
           <div class="case__row"><dt>기업의 상황</dt><dd class="is-empty">자료 확정 후 기재</dd></div>
           <div class="case__row"><dt>핵심 진단</dt><dd class="is-empty">자료 확정 후 기재</dd></div>
           <div class="case__row"><dt>실행 전략</dt><dd class="is-empty">자료 확정 후 기재</dd></div>
@@ -423,6 +423,9 @@
         <form class="form" id="applyForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
           <input type="hidden" name="_subject" value="[경영주치의] 기업 현황 1차 진단 신청">
           <input type="hidden" name="유입경로" value="">
+          <div class="hp" aria-hidden="true">
+            <label>이 칸은 비워두세요<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+          </div>
           <div class="form__grid">
             <label class="field"><span class="field__label">기업명</span><input type="text" name="기업명" placeholder="기업명" required></label>
             <label class="field"><span class="field__label">대표자 · 담당자명</span><input type="text" name="대표자_담당자명" placeholder="대표자 · 담당자명" required></label>

@@ -84,19 +84,48 @@
           t.classList.toggle('is-active', on);
           t.setAttribute('aria-selected', on ? 'true' : 'false');
         });
+        tabs.forEach(function (t) {
+          t.setAttribute('tabindex', t === tab ? '0' : '-1');
+        });
         $$('.case__rows').forEach(function (rows) {
           rows.classList.toggle('is-hidden', rows.getAttribute('data-case') !== key);
         });
         track('case_tab', { case_no: key });
       });
+
+      /* 좌우 방향키로 탭 이동 */
+      tab.addEventListener('keydown', function (e) {
+        var i = tabs.indexOf(tab);
+        var next = e.key === 'ArrowRight' ? i + 1 : e.key === 'ArrowLeft' ? i - 1 : -1;
+        if (next < 0 || next >= tabs.length) return;
+        e.preventDefault();
+        tabs[next].focus();
+        tabs[next].click();
+      });
     });
   }
 
   /* ---------- 아직 값이 없는 연락 버튼 ---------- */
+  var toastTimer;
+  function toast(text) {
+    var el = $('#toast');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'toast';
+      el.className = 'toast';
+      el.setAttribute('role', 'status');
+      document.body.appendChild(el);
+    }
+    el.textContent = text;
+    el.classList.add('is-on');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { el.classList.remove('is-on'); }, 2600);
+  }
+
   $$('[data-pending]').forEach(function (el) {
     el.addEventListener('click', function (e) {
       e.preventDefault();
-      alert(el.getAttribute('data-pending'));
+      toast(el.getAttribute('data-pending'));
     });
   });
 
