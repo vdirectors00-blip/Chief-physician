@@ -3,6 +3,19 @@
    시안: 경영주치의.jpg (1920 x 12200)
    ========================================================= */
 
+/* 폰트 자체 호스팅.
+   이 사이트에 실제로 쓰인 글자만 남긴 Pretendard 서브셋입니다 (330KB -> 105KB).
+   ※ 화면 문구를 새로 추가하거나 바꾸면 tools/make_font_subset.py 를 다시 돌려
+     assets/fonts/PretendardVariable.subset.woff2 를 갱신해야 합니다.
+     (갱신하지 않으면 새 글자만 시스템 기본 글꼴로 나옵니다) */
+@font-face{
+  font-family:"Pretendard Variable";
+  font-weight:45 920;
+  font-style:normal;
+  font-display:swap;
+  src:url("../fonts/PretendardVariable.subset.woff2") format("woff2-variations");
+}
+
 :root{
   --navy:#030f1d;
   --navy-2:#09182b;
