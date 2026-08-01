@@ -18,6 +18,10 @@ ICONS = {
 PRESET = {'policy-fund':'정책자금','gov-program':'정부지원사업','certification':'기업인증',
           'incorporation':'법인전환','export':'수출 바이어 매칭','asset':'사옥 공장 매입'}
 
+# 상단 배경 사진. 랜딩 6대 서비스 카드와 같은 파일을 다시 써서 용량이 늘지 않는다.
+PHOTO = {'policy-fund':'svc-fund','gov-program':'svc-gov','certification':'svc-cert',
+         'incorporation':'svc-inc','export':'svc-export','asset':'svc-asset'}
+
 NOTE = ('이 페이지의 내용은 공개된 제도 안내를 기준으로 정리한 것입니다. '
         '지원 요건과 금리, 한도, 일정은 사업별 공고와 기관 심사에 따라 달라집니다. '
         '세무, 법률, 감정평가 등 자격이 필요한 업무는 해당 분야 전문가와 협업하여 진행합니다.')
@@ -162,7 +166,7 @@ HEAD = '''<!DOCTYPE html>
 <header class="header" id="header">
   <div class="container header__inner">
     <!-- TODO:LOGO 로고 파일 받으면 이미지로 교체 -->
-    <a class="logo" href="../index.html">비즈밸류</a>
+    <a class="logo" href="../index.html"><img class="logo__mark" src="../assets/img/logo.svg" alt="" aria-hidden="true" width="32" height="32"><span>비즈밸류 기업성장연구소</span></a>
     <nav class="nav" id="nav">
       <a href="../index.html" class="nav__link">HOME</a>
       <a href="../index.html#worries" class="nav__link">기업 대표의 고민</a>
@@ -185,10 +189,30 @@ FOOT = '''</main>
 
 <footer class="footer">
   <div class="container footer__inner">
-    <p class="footer__logo">비즈밸류</p>
-    <!-- TODO:BIZ 상호 · 대표자 · 사업자등록번호 · 주소 · 연락처 -->
-    <p class="footer__biz">상호 · 대표자 · 사업자등록번호 · 주소 · 연락처 (확정 후 기재)</p>
-    <p class="footer__copy">&copy; 비즈밸류. All rights reserved.</p>
+    <div class="footer__cols">
+      <div class="footer__brand">
+        <p class="footer__logo"><img src="../assets/img/logo.svg" alt="" aria-hidden="true" width="30" height="30"><span>비즈밸류 기업성장연구소</span></p>
+        <!-- TODO:BIZ 상호 · 대표자 · 사업자등록번호 · 주소 · 연락처 -->
+        <p class="footer__biz">상호 · 대표자 · 사업자등록번호 · 주소 · 연락처 (확정 후 기재)</p>
+      </div>
+
+      <nav class="footer__nav" aria-label="컨설팅 분야">
+        <p class="footer__navtitle">컨설팅 분야</p>
+        <ul>
+          <li><a href="policy-fund.html">정책자금 조달</a></li>
+          <li><a href="gov-program.html">정부지원사업</a></li>
+          <li><a href="certification.html">기업인증</a></li>
+          <li><a href="incorporation.html">법인전환</a></li>
+          <li><a href="export.html">수출 바이어 매칭</a></li>
+          <li><a href="asset.html">사옥·공장 매입</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 비즈밸류. All rights reserved.</p>
+      <a class="footer__policy" href="../privacy.html">개인정보 처리방침</a>
+    </div>
   </div>
 </footer>
 
@@ -227,10 +251,14 @@ FOOT = '''</main>
 def build(p, others):
     h = [HEAD.format(title=p['title'], lead=p['lead'], ga=GA)]
 
-    h.append('<section class="subhero">\n  <div class="container">\n')
+    h.append('<section class="subhero subhero--photo">\n')
+    h.append('  <div class="subhero__bg" aria-hidden="true"><picture>'
+             '<source srcset="../assets/img/%s.webp" type="image/webp">'
+             '<img src="../assets/img/%s.jpg" alt="" width="920" height="518"></picture></div>\n'
+             % (PHOTO[p['slug']], PHOTO[p['slug']]))
+    h.append('  <div class="container">\n')
     h.append('    <p class="crumb"><a href="../index.html">HOME</a> <span aria-hidden="true">&rsaquo;</span> '
              '<a href="../index.html#services">6대 핵심 서비스</a> <span aria-hidden="true">&rsaquo;</span> %s</p>\n' % p['title'])
-    h.append('    <div class="subhero__mark" aria-hidden="true"><svg viewBox="0 0 24 24">%s</svg></div>\n' % ICONS[p['slug']])
     h.append('    <div class="subhero__icon" aria-hidden="true"><svg viewBox="0 0 24 24">%s</svg></div>\n' % ICONS[p['slug']])
     h.append('    <p class="subhero__no">SERVICE %s</p>\n' % p['no'])
     h.append('    <h1 class="subhero__title">%s</h1>\n' % p['title'])

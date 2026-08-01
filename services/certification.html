@@ -3,23 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>기업인증 | 비즈밸류 기업성장연구소</title>
+<title>기업인증 | 경영주치의</title>
 <meta name="description" content="기업인증을 단순한 인증 취득이 아니라 기업 성장 전략과 연결합니다.">
 <meta name="robots" content="noindex, nofollow">
 <meta property="og:type" content="article">
-<meta property="og:title" content="기업인증 | 비즈밸류 기업성장연구소">
+<meta property="og:title" content="기업인증 | 경영주치의">
 <meta property="og:description" content="기업인증을 단순한 인증 취득이 아니라 기업 성장 전략과 연결합니다.">
-<!-- 정식 도메인이 정해지면 아래 canonical / og:url / og:image 의 주소를 새 도메인으로 바꿔야 합니다. -->
-<link rel="canonical" href="https://vdirectors00-blip.github.io/Chief-physician/services/certification.html">
-<meta property="og:url" content="https://vdirectors00-blip.github.io/Chief-physician/services/certification.html">
-<meta property="og:site_name" content="비즈밸류 기업성장연구소">
-<meta property="og:locale" content="ko_KR">
-<meta property="og:image" content="https://vdirectors00-blip.github.io/Chief-physician/assets/img/hero.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="../assets/img/favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
-<meta name="theme-color" content="#030f1d">
-<link rel="preload" as="font" type="font/woff2" href="../assets/fonts/PretendardVariable.subset.woff2" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="../assets/css/style.css">
 <!-- ============================================================
      TODO:GA4  구글 애널리틱스 측정 ID (G- 로 시작) 를 아래 따옴표 안에 넣으면
@@ -51,7 +41,8 @@
 
 <header class="header" id="header">
   <div class="container header__inner">
-    <a class="logo" href="../index.html"><img class="logo__mark" src="../assets/img/logo.svg" alt="" aria-hidden="true"><span>비즈밸류 기업성장연구소</span></a>
+    <!-- TODO:LOGO 로고 파일 받으면 이미지로 교체 -->
+    <a class="logo" href="../index.html"><img class="logo__mark" src="../assets/img/logo.svg" alt="" aria-hidden="true" width="32" height="32"><span>비즈밸류 기업성장연구소</span></a>
     <nav class="nav" id="nav">
       <a href="../index.html" class="nav__link">HOME</a>
       <a href="../index.html#worries" class="nav__link">기업 대표의 고민</a>
@@ -68,10 +59,10 @@
 </header>
 
 <main id="main">
-<section class="subhero">
+<section class="subhero subhero--photo">
+  <div class="subhero__bg" aria-hidden="true"><picture><source srcset="../assets/img/svc-cert.webp" type="image/webp"><img src="../assets/img/svc-cert.jpg" alt="" width="920" height="518"></picture></div>
   <div class="container">
     <p class="crumb"><a href="../index.html">HOME</a> <span aria-hidden="true">&rsaquo;</span> <a href="../index.html#services">6대 핵심 서비스</a> <span aria-hidden="true">&rsaquo;</span> 기업인증</p>
-    <div class="subhero__mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5.7c0 4.3-2.9 8-7 9.3-4.1-1.3-7-5-7-9.3V6z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg></div>
     <div class="subhero__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5.7c0 4.3-2.9 8-7 9.3-4.1-1.3-7-5-7-9.3V6z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg></div>
     <p class="subhero__no">SERVICE 03</p>
     <h1 class="subhero__title">기업인증</h1>
@@ -167,18 +158,18 @@
 
         <!-- TODO:FORM  Formspree 가입 후 아래 action 을 발급받은 주소로 교체하면 메일로 접수됩니다. -->
         <form class="form" id="applyForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate data-preset="기업인증">
-          <input type="hidden" name="_subject" value="[비즈밸류] 기업 현황 1차 진단 신청">
+          <input type="hidden" name="_subject" value="[경영주치의] 기업 현황 1차 진단 신청">
           <input type="hidden" name="유입경로" value="">
           <div class="hp" aria-hidden="true">
             <label>이 칸은 비워두세요<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
           </div>
           <div class="form__grid">
-            <label class="field"><span class="field__label">기업명</span><input type="text" name="기업명" required></label>
-            <label class="field"><span class="field__label">대표자 · 담당자명</span><input type="text" name="대표자_담당자명" required></label>
-            <label class="field"><span class="field__label">연락처</span><input type="tel" name="연락처" required></label>
-            <label class="field"><span class="field__label">소재지 <em>(선택)</em></span><input type="text" name="소재지"></label>
-            <label class="field"><span class="field__label">연 매출 <em>(선택)</em></span><input type="text" name="연매출"></label>
-            <label class="field"><span class="field__label">세금 완납 여부 <em>(선택)</em></span><input type="text" name="세금완납여부"></label>
+            <label class="field"><span class="field__label">기업명</span><input type="text" name="기업명" placeholder="기업명" required></label>
+            <label class="field"><span class="field__label">대표자 · 담당자명</span><input type="text" name="대표자_담당자명" placeholder="대표자 · 담당자명" required></label>
+            <label class="field"><span class="field__label">연락처</span><input type="tel" name="연락처" placeholder="연락처" required></label>
+            <label class="field"><span class="field__label">소재지</span><input type="text" name="소재지" placeholder="소재지 (선택)"></label>
+            <label class="field"><span class="field__label">연 매출</span><input type="text" name="연매출" placeholder="연 매출 (선택)"></label>
+            <label class="field"><span class="field__label">세금 완납 여부</span><input type="text" name="세금완납여부" placeholder="세금 완납 여부 (선택)"></label>
           </div>
 
           <p class="form__legend">상담 분야 (중복 선택 가능)</p>
@@ -223,10 +214,30 @@
 
 <footer class="footer">
   <div class="container footer__inner">
-    <p class="footer__logo"><img src="../assets/img/logo.svg" alt="" aria-hidden="true"><span>비즈밸류 기업성장연구소</span></p>
-    <!-- TODO:BIZ 상호 · 대표자 · 사업자등록번호 · 주소 · 연락처 -->
-    <p class="footer__biz">상호 · 대표자 · 사업자등록번호 · 주소 · 연락처 (확정 후 기재)</p>
-    <p class="footer__copy">&copy; 비즈밸류. All rights reserved.</p>
+    <div class="footer__cols">
+      <div class="footer__brand">
+        <p class="footer__logo"><img src="../assets/img/logo.svg" alt="" aria-hidden="true" width="30" height="30"><span>비즈밸류 기업성장연구소</span></p>
+        <!-- TODO:BIZ 상호 · 대표자 · 사업자등록번호 · 주소 · 연락처 -->
+        <p class="footer__biz">상호 · 대표자 · 사업자등록번호 · 주소 · 연락처 (확정 후 기재)</p>
+      </div>
+
+      <nav class="footer__nav" aria-label="컨설팅 분야">
+        <p class="footer__navtitle">컨설팅 분야</p>
+        <ul>
+          <li><a href="policy-fund.html">정책자금 조달</a></li>
+          <li><a href="gov-program.html">정부지원사업</a></li>
+          <li><a href="certification.html">기업인증</a></li>
+          <li><a href="incorporation.html">법인전환</a></li>
+          <li><a href="export.html">수출 바이어 매칭</a></li>
+          <li><a href="asset.html">사옥·공장 매입</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 비즈밸류. All rights reserved.</p>
+      <a class="footer__policy" href="../privacy.html">개인정보 처리방침</a>
+    </div>
   </div>
 </footer>
 
@@ -249,11 +260,6 @@
   <a class="float__btn float__btn--insta" href="#" data-pending="인스타그램 준비중" aria-label="인스타그램">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 3.2A6.6 6.6 0 1 0 18.6 12 6.6 6.6 0 0 0 12 5.4zm0 10.9A4.3 4.3 0 1 1 16.3 12 4.3 4.3 0 0 1 12 16.3zm6.9-11.1a1.5 1.5 0 1 1-1.5-1.5 1.5 1.5 0 0 1 1.5 1.5z"/></svg>
     <span class="float__tip">인스타그램</span>
-  </a>
-  <!-- TODO:FACEBOOK href="https://facebook.com/페이지주소" 로 교체 -->
-  <a class="float__btn float__btn--facebook" href="#" data-pending="페이스북 준비중" aria-label="페이스북">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.5-3.91 3.77-3.91 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.44 2.91h-2.34V22c4.78-.79 8.44-4.94 8.44-9.94z"/></svg>
-    <span class="float__tip">페이스북</span>
   </a>
   <a class="float__btn float__btn--apply" href="../index.html#apply" aria-label="1차 진단 신청">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h11l4 4v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm2 7h10v2H7v-2zm0 4h10v2H7v-2zm0 4h6v2H7v-2z"/></svg>
