@@ -428,9 +428,9 @@ button,input{font:inherit;color:inherit}
 .float__btn svg{width:24px;height:24px;fill:currentColor}
 .float__btn:hover{transform:translateY(-3px) scale(1.06)}
 .float__btn--tel{background:var(--blue)}
-.float__btn--kakao{background:#fee500;color:#3c1e1e}
+.float__btn--kakao{background:#fee500;color:#000}
 .float__btn--facebook{background:#1877f2;color:#fff}
-.float__btn--insta{background:linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7)}
+.float__btn--insta{background:linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5)}
 .float__btn--apply{background:var(--navy);border:1px solid rgba(255,255,255,.22)}
 .float__tip{
   position:absolute;right:66px;top:50%;transform:translateY(-50%) translateX(8px);
