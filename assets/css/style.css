@@ -220,7 +220,9 @@ button,input{font:inherit;color:inherit}
 .approach__split .h2{margin-bottom:0}
 
 /* ================= 고민 리스트 ================= */
-.worries{margin-top:clamp(40px,4vw,74px);display:flex;flex-direction:column;gap:15px;max-width:1010px;margin-left:auto;margin-right:auto}
+/* 섹션 안의 모든 블록은 제목과 같은 왼쪽 기준선에서 시작한다.
+   가운데 정렬은 사진을 깐 선언 성격의 구간(히어로·선언 배너·최종 CTA)에서만 쓴다. */
+.worries{margin-top:clamp(40px,4vw,74px);display:flex;flex-direction:column;gap:15px}
 .worry{
   display:flex;align-items:flex-start;gap:clamp(12px,1.25vw,24px);
   padding:clamp(18px,1.55vw,30px) clamp(20px,2.1vw,40px);border:1px solid rgba(255,255,255,.12);border-radius:10px;
@@ -231,12 +233,12 @@ button,input{font:inherit;color:inherit}
 .worry__no{color:var(--gold-soft);font-weight:800;font-size:clamp(13px,1.12vw,21px);flex:none;line-height:1.7}
 .worry__txt{font-size:clamp(14.5px,1.17vw,22px);color:rgba(255,255,255,.92);line-height:1.7}
 .worries__closing{
-  margin-top:clamp(42px,4.6vw,88px);text-align:center;font-size:clamp(16px,1.55vw,30px);
+  margin-top:clamp(42px,4.6vw,88px);font-size:clamp(16px,1.55vw,30px);
   font-weight:700;line-height:1.85;letter-spacing:-.03em;color:#fff;
 }
 
 /* ================= 4단계 ================= */
-.steps{margin-top:clamp(46px,4.8vw,92px);background:var(--grey);border-radius:6px;padding:clamp(46px,5.6vw,108px) clamp(24px,3.2vw,62px)}
+.steps{margin-top:clamp(46px,4.8vw,92px);background:var(--grey);border-radius:6px;padding:clamp(40px,4.4vw,84px) clamp(24px,3.2vw,62px)}
 .steps__list{display:grid;grid-template-columns:repeat(4,1fr);position:relative}
 .step{display:flex;flex-direction:column;align-items:center;gap:clamp(14px,1.2vw,22px);position:relative}
 .step::before{
@@ -268,13 +270,16 @@ button,input{font:inherit;color:inherit}
 .card__fig img{width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform .6s var(--ease)}
 .card__fig::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,15,29,.06),rgba(3,15,29,.22))}
 .card:hover .card__fig img{transform:scale(1.06)}
+/* 사진 경계에 걸치는 칩. 밝은 사진 위에서도 읽히도록 불투명 흰 바탕을 쓴다
+   (반투명 골드였을 때 건물·회의실 사진 위에서 아이콘이 묻혔음) */
 .card__icon{
   margin-top:clamp(-34px,-2.2vw,-26px);position:relative;z-index:1;
-  background:rgba(200,151,58,.2);box-shadow:0 6px 18px rgba(3,15,29,.14);
+  background:#fff;box-shadow:0 8px 20px rgba(3,15,29,.22);
   width:clamp(46px,3.4vw,64px);height:clamp(46px,3.4vw,64px);border-radius:12px;
   display:grid;place-items:center;margin-bottom:clamp(16px,1.3vw,26px);
-  border:1px solid rgba(200,151,58,.5);
+  border:1px solid rgba(200,151,58,.55);
 }
+.card:hover .card__icon{background:var(--gold-dim);border-color:rgba(200,151,58,.8)}
 .card__icon svg{width:56%;height:56%;fill:none;stroke:var(--gold);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .card__no{color:var(--gold);font-weight:800;font-size:clamp(15px,1.18vw,22px);letter-spacing:.02em}
 .card__title{margin-top:clamp(12px,0.85vw,16px);font-size:clamp(17px,1.32vw,25.5px);font-weight:800;letter-spacing:-.03em}
@@ -296,9 +301,10 @@ button,input{font:inherit;color:inherit}
 .profile__title{font-size:clamp(20px,2.15vw,41px);font-weight:800;letter-spacing:-.035em;line-height:1.42}
 .profile__txt{margin-top:clamp(20px,1.8vw,34px);font-size:clamp(15px,1.14vw,22px);line-height:1.95;color:var(--txt-sub)}
 .tags{margin-top:38px;display:flex;flex-wrap:wrap;gap:10px}
+/* 사이트의 다른 칩(협업 분야·서비스 태그)과 같은 알약 형태로 맞춘다 */
 .tag{
   background:var(--navy);color:#fff;font-size:clamp(13px,0.94vw,18px);font-weight:600;
-  padding:clamp(10px,0.9vw,17px) clamp(14px,1.25vw,24px);border-radius:4px;letter-spacing:-.02em;
+  padding:clamp(9px,0.8vw,15px) clamp(15px,1.35vw,26px);border-radius:100px;letter-spacing:-.02em;
 }
 
 /* ================= 선언 배너 ================= */
@@ -335,15 +341,15 @@ button,input{font:inherit;color:inherit}
 .case__row dd{font-size:clamp(13px,0.94vw,18px);line-height:1.75;color:rgba(255,255,255,.75)}
 
 /* ================= 전문가 협업 ================= */
-.mini{margin-top:clamp(48px,5.6vw,108px);text-align:center;font-size:clamp(16px,1.18vw,23px);font-weight:700;letter-spacing:-.03em}
-.chips{margin-top:26px;display:grid;grid-template-columns:repeat(4,minmax(0,168px));gap:14px;justify-content:center}
+.mini{margin-top:clamp(42px,4.6vw,88px);font-size:clamp(16px,1.18vw,23px);font-weight:700;letter-spacing:-.03em;color:var(--gold)}
+.chips{margin-top:26px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .chip{display:grid;place-items:center;text-align:center;min-height:clamp(58px,4.4vw,87px);padding:0 14px;border-radius:8px;font-size:clamp(14px,1.06vw,20px);font-weight:700;letter-spacing:-.02em;background:rgba(3,15,29,.04);border:1px solid rgba(3,15,29,.12);color:var(--txt);transition:border-color .25s,background .25s,color .25s}
 /* 칩은 링크가 아니므로 파랑(행동)이 아니라 골드(라벨)로 반응한다 */
 .chip:hover{background:var(--gold-dim);border-color:rgba(200,151,58,.5);color:#6b4d12;transform:translateY(-4px)}
 .position{
-  margin:26px auto 0;max-width:640px;background:var(--navy);color:#fff;
-  text-align:center;font-weight:700;font-size:clamp(14px,1.4vw,26px);
-  padding:clamp(20px,1.7vw,32px) 22px;border-radius:6px;letter-spacing:-.03em;
+  margin:26px 0 0;max-width:min(1080px,100%);background:var(--navy);color:#fff;
+  font-weight:700;font-size:clamp(14px,1.4vw,26px);text-wrap:balance;
+  padding:clamp(20px,1.7vw,32px) clamp(22px,2vw,38px);border-radius:6px;letter-spacing:-.03em;
 }
 
 /* ================= 신청 폼 ================= */
@@ -515,7 +521,7 @@ button,input{font:inherit;color:inherit}
 
 /* ---------- 3대 핵심 가치 (요청서 2번) ---------- */
 .flow{
-  margin:clamp(30px,3.2vw,60px) auto 0;display:flex;flex-wrap:wrap;justify-content:center;
+  margin:clamp(30px,3.2vw,60px) 0 0;display:flex;flex-wrap:wrap;justify-content:flex-start;
   align-items:center;gap:clamp(8px,0.9vw,18px);
 }
 .flow li{
@@ -541,7 +547,8 @@ button,input{font:inherit;color:inherit}
 .value__no{color:var(--gold);font-weight:800;font-size:clamp(15px,1.18vw,22px);letter-spacing:.02em}
 /* 제목이 한 줄인 카드와 두 줄인 카드의 본문 시작선을 맞춘다 */
 .value__title{margin-top:clamp(12px,0.85vw,16px);font-size:clamp(18px,1.39vw,25.5px);font-weight:800;letter-spacing:-.03em;line-height:1.42;min-height:2.84em}
-.value__desc{margin-top:clamp(12px,0.9vw,17px);font-size:clamp(13px,0.94vw,18px);line-height:1.8;color:var(--txt-sub)}
+/* 설명 길이가 달라도 아래 태그 줄이 같은 높이에서 시작하도록 */
+.value__desc{margin-top:clamp(12px,0.9vw,17px);font-size:clamp(13px,0.94vw,18px);line-height:1.8;color:var(--txt-sub);min-height:5.4em}
 .value__tags{margin-top:auto;padding-top:clamp(22px,1.8vw,34px);display:flex;flex-wrap:wrap;gap:8px}
 .value__tags a{
   display:inline-block;padding:clamp(7px,0.6vw,12px) clamp(11px,1vw,19px);border-radius:100px;
@@ -696,6 +703,8 @@ button,input{font:inherit;color:inherit}
   .values{grid-template-columns:1fr;gap:14px}
   .value__title br{display:none}
   .value__title{min-height:0}
+  .value__desc{min-height:0}
+  .chips{justify-content:stretch}
   .checks{grid-template-columns:1fr}
   .need{grid-template-columns:1fr}
   .siblings{grid-template-columns:repeat(2,1fr)}
