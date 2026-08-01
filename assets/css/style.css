@@ -383,8 +383,8 @@ button,input{font:inherit;color:inherit}
   margin:clamp(40px,4.6vw,88px) auto 0;max-width:980px;background:#12161c;
   border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:clamp(30px,2.9vw,56px) clamp(30px,2.9vw,56px) clamp(28px,2.6vw,50px);
 }
-.formbox__title{font-size:clamp(16px,1.18vw,23px);font-weight:700;color:#fff;letter-spacing:-.03em}
-.formbox__desc{margin-top:12px;font-size:13px;color:rgba(255,255,255,.6);line-height:1.75}
+.formbox__title{font-size:clamp(19px,1.55vw,30px);font-weight:800;color:#fff;letter-spacing:-.035em}
+.formbox__desc{margin-top:clamp(10px,0.9vw,16px);font-size:clamp(13px,0.94vw,17px);color:rgba(255,255,255,.66);line-height:1.8}
 .form__grid{margin-top:30px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .field{display:block}
 .field__label{display:block;margin-bottom:8px;font-size:13px;font-weight:600;color:rgba(255,255,255,.68);letter-spacing:-.02em}
@@ -408,7 +408,18 @@ button,input{font:inherit;color:inherit}
 .pick input:checked+span{background:var(--blue);border-color:var(--blue);color:#fff;font-weight:600}
 .pick input:focus-visible+span{outline:2px solid var(--blue);outline-offset:2px}
 .agree{margin-top:26px;display:flex;align-items:center;gap:10px;font-size:12.8px;color:rgba(255,255,255,.62);cursor:pointer}
-.agree input{width:17px;height:17px;accent-color:var(--blue)}
+.agree input{
+  appearance:none;width:19px;height:19px;flex:none;border-radius:5px;cursor:pointer;
+  background:#171c23;border:1px solid rgba(255,255,255,.28);
+  display:grid;place-items:center;transition:background .2s,border-color .2s;
+}
+.agree input::after{
+  content:"";width:10px;height:6px;border-left:2px solid #fff;border-bottom:2px solid #fff;
+  transform:rotate(-45deg) translate(1px,-1px);opacity:0;transition:opacity .15s;
+}
+.agree input:checked{background:var(--blue);border-color:var(--blue)}
+.agree input:checked::after{opacity:1}
+.agree input:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 .form__msg{margin-top:16px;font-size:13px;text-align:center;min-height:20px;color:var(--blue-soft)}
 .form__msg.is-err{color:#ff8080}
 
