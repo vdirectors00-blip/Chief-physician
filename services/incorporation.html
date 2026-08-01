@@ -160,6 +160,9 @@
         <form class="form" id="applyForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate data-preset="법인전환">
           <input type="hidden" name="_subject" value="[경영주치의] 기업 현황 1차 진단 신청">
           <input type="hidden" name="유입경로" value="">
+          <div class="hp" aria-hidden="true">
+            <label>이 칸은 비워두세요<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+          </div>
           <div class="form__grid">
             <label class="field"><span class="field__label">기업명</span><input type="text" name="기업명" placeholder="기업명" required></label>
             <label class="field"><span class="field__label">대표자 · 담당자명</span><input type="text" name="대표자_담당자명" placeholder="대표자 · 담당자명" required></label>

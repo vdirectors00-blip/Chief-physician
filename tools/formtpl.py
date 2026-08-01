@@ -53,6 +53,10 @@ def form(prefix='', preset='', form_id='applyForm', title=None, desc=None):
              % (form_id, (' data-preset="%s"' % preset) if preset else ''))
     h.append('          <input type="hidden" name="_subject" value="[경영주치의] 기업 현황 1차 진단 신청">\n')
     h.append('          <input type="hidden" name="유입경로" value="">\n')
+    # 스팸 미끼: 사람 눈에는 안 보이고 봇만 채운다
+    h.append('          <div class="hp" aria-hidden="true">\n')
+    h.append('            <label>이 칸은 비워두세요<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>\n')
+    h.append('          </div>\n')
     h.append('          <div class="form__grid">\n')
     for name, label, typ, req in FIELDS:
         ph = label if req else label + ' (선택)'
