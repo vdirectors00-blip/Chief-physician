@@ -256,7 +256,7 @@ FOOT = '''</main>
     <span class="float__tip">인스타그램</span>
   </a>
   <a class="float__btn float__btn--apply" href="../index.html#apply" aria-label="1차 진단 신청">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h11l4 4v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm2 7h10v2H7v-2zm0 4h10v2H7v-2zm0 4h6v2H7v-2z"/></svg>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.2 4.6H7.6A1.6 1.6 0 0 0 6 6.2v13.2a1.6 1.6 0 0 0 1.6 1.6h8.8a1.6 1.6 0 0 0 1.6-1.6V6.2a1.6 1.6 0 0 0-1.6-1.6h-1.6"/><rect x="9.2" y="3" width="5.6" height="3.2" rx="1.1"/><path d="M9.4 13.2l1.9 1.9 3.6-4.2"/></svg>
     <span class="float__tip">1차 진단 신청</span>
   </a>
 </div>
