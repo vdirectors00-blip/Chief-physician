@@ -299,8 +299,6 @@ def build(p, others):
 
     h.append('<section class="sec sec--ink">\n  <div class="container endcta">\n')
     h.append('    <h2 class="h2 h2--center reveal">%s, 우리 회사도 될까요?</h2>\n' % p['title'])
-    h.append('    <p class="body body--center reveal">기업 현황을 남겨주시면 내용을 확인한 후 1차 상담을 통해 '
-             '현재 가장 먼저 검토해야 할 과제를 함께 살펴보겠습니다.</p>\n')
     h.append(form(prefix='../', preset=PRESET[p['slug']], form_id='applyForm'))
     h.append('    <div class="siblings reveal">\n')
     for o in others:

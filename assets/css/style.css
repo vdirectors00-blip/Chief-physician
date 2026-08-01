@@ -229,7 +229,6 @@ button,input{font:inherit;color:inherit}
   background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.012));
   transition:border-color .3s,transform .3s var(--ease),background .3s;
 }
-.worry:hover{border-color:rgba(0,140,255,.55);transform:translateX(6px);background:rgba(0,140,255,.07)}
 .worry__no{color:var(--gold-soft);font-weight:800;font-size:clamp(13px,1.12vw,21px);flex:none;line-height:1.7}
 .worry__txt{font-size:clamp(14.5px,1.17vw,22px);color:rgba(255,255,255,.92);line-height:1.7}
 .worries__closing{
@@ -255,12 +254,11 @@ button,input{font:inherit;color:inherit}
   border:1.5px solid #1d2733;font-size:clamp(14px,1.06vw,20px);font-weight:700;color:#1d2733;
 }
 .step__label{font-size:clamp(14px,1.12vw,21px);font-weight:600;color:#1d2733}
-.step.is-active .step__dot{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:0 8px 20px rgba(0,140,255,.35)}
-.step.is-active .step__label{color:var(--blue);font-weight:700}
 
 /* ================= 서비스 카드 ================= */
 .cards{margin-top:clamp(44px,5.2vw,100px);display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
 .card{
+  position:relative;
   background:#fff;color:var(--txt);border-radius:var(--radius);overflow:hidden;
   padding:clamp(30px,2.4vw,46px) clamp(22px,2vw,38px) clamp(24px,2vw,38px);display:flex;flex-direction:column;
   transition:transform .32s var(--ease),box-shadow .32s var(--ease);
@@ -279,7 +277,6 @@ button,input{font:inherit;color:inherit}
   display:grid;place-items:center;margin-bottom:clamp(16px,1.3vw,26px);
   border:1px solid rgba(200,151,58,.55);
 }
-.card:hover .card__icon{background:var(--gold-dim);border-color:rgba(200,151,58,.8)}
 .card__icon svg{width:56%;height:56%;fill:none;stroke:var(--gold);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .card__no{color:var(--gold);font-weight:800;font-size:clamp(15px,1.18vw,22px);letter-spacing:.02em}
 .card__title{margin-top:clamp(12px,0.85vw,16px);font-size:clamp(17px,1.32vw,25.5px);font-weight:800;letter-spacing:-.03em}
@@ -290,6 +287,8 @@ button,input{font:inherit;color:inherit}
   margin-top:auto;padding-top:clamp(22px,1.6vw,31px);color:var(--blue);font-size:clamp(12.5px,0.89vw,17px);font-weight:700;
   display:inline-flex;align-items:center;gap:10px;
 }
+/* 카드 어디를 눌러도 상세로 가도록 링크 영역을 카드 전체로 넓힌다 */
+.card__more::after{content:"";position:absolute;inset:0;z-index:2}
 .card__more span{transition:transform .25s var(--ease)}
 .card__more:hover span{transform:translateX(6px)}
 
@@ -297,7 +296,6 @@ button,input{font:inherit;color:inherit}
 .profile{margin-top:clamp(38px,4.6vw,88px);display:grid;grid-template-columns:340px 1fr;gap:70px;align-items:start}
 .profile__photo{overflow:hidden;border-radius:4px;background:var(--grey)}
 .profile__photo img{width:100%;transition:transform .8s var(--ease)}
-.profile__photo:hover img{transform:scale(1.04)}
 .profile__title{font-size:clamp(20px,2.15vw,41px);font-weight:800;letter-spacing:-.035em;line-height:1.42}
 .profile__txt{margin-top:clamp(20px,1.8vw,34px);font-size:clamp(15px,1.14vw,22px);line-height:1.95;color:var(--txt-sub)}
 .tags{margin-top:38px;display:flex;flex-wrap:wrap;gap:10px}
@@ -316,9 +314,8 @@ button,input{font:inherit;color:inherit}
 .steprow{
   display:grid;grid-template-columns:96px 190px 1fr;align-items:center;gap:0 clamp(16px,1.4vw,27px);
   padding:clamp(20px,1.7vw,32px) clamp(22px,2.1vw,40px);border:1px solid rgba(255,255,255,.13);border-radius:8px;
-  background:rgba(255,255,255,.025);transition:border-color .3s,background .3s;
+  background:rgba(255,255,255,.025);
 }
-.steprow:hover{border-color:rgba(0,140,255,.5);background:rgba(0,140,255,.06)}
 .steprow__no{color:var(--blue);font-weight:800;font-size:clamp(13px,0.94vw,18px);letter-spacing:.04em;white-space:nowrap}
 .steprow__name{font-weight:700;font-size:clamp(14px,1.04vw,20px);letter-spacing:-.02em}
 .steprow__desc{font-size:clamp(14px,1.07vw,20.5px);color:rgba(255,255,255,.72);line-height:1.7}
@@ -342,10 +339,29 @@ button,input{font:inherit;color:inherit}
 
 /* ================= 전문가 협업 ================= */
 .mini{margin-top:clamp(42px,4.6vw,88px);font-size:clamp(16px,1.18vw,23px);font-weight:700;letter-spacing:-.03em;color:var(--gold)}
-.chips{margin-top:26px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.chip{display:grid;place-items:center;text-align:center;min-height:clamp(58px,4.4vw,87px);padding:0 14px;border-radius:8px;font-size:clamp(14px,1.06vw,20px);font-weight:700;letter-spacing:-.02em;background:rgba(3,15,29,.04);border:1px solid rgba(3,15,29,.12);color:var(--txt);transition:border-color .25s,background .25s,color .25s}
-/* 칩은 링크가 아니므로 파랑(행동)이 아니라 골드(라벨)로 반응한다 */
-.chip:hover{background:var(--gold-dim);border-color:rgba(200,151,58,.5);color:#6b4d12;transform:translateY(-4px)}
+/* 협업 전문가. 사진을 받으면 원 안의 아이콘을 사진으로 갈아끼운다 */
+.experts{
+  margin-top:26px;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.1vw,20px);
+}
+.expert{
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  padding:clamp(20px,1.7vw,32px) clamp(12px,1vw,18px);
+  border:1px solid var(--line);border-radius:12px;background:#fff;
+}
+.expert__ph{
+  width:clamp(58px,4.6vw,86px);height:clamp(58px,4.6vw,86px);border-radius:50%;
+  background:var(--grey);border:1px solid var(--line);
+  display:grid;place-items:center;overflow:hidden;flex:none;
+}
+.expert__ph svg{width:46%;height:46%;fill:none;stroke:var(--gold);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.expert__ph img{width:100%;height:100%;object-fit:cover}
+.expert__field{
+  margin-top:clamp(12px,1vw,18px);font-size:clamp(13.5px,1vw,19px);
+  font-weight:700;letter-spacing:-.03em;color:var(--txt);
+}
+.expert__name{margin-top:6px;font-size:clamp(12.5px,0.9vw,17px);font-weight:600;color:var(--txt-sub)}
+.expert__org{margin-top:2px;font-size:clamp(11.5px,0.82vw,15px);color:#8b95a3}
+
 .position{
   margin:26px 0 0;max-width:min(1080px,100%);background:var(--navy);color:#fff;
   font-weight:700;font-size:clamp(14px,1.4vw,26px);text-wrap:balance;
@@ -449,7 +465,7 @@ button,input{font:inherit;color:inherit}
   .card__lead br,.body br,.hero__lead br,.profile__txt br{display:none}
   .profile{grid-template-columns:280px 1fr;gap:44px}
   .case{grid-template-columns:1fr;gap:26px}
-  .chips{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .experts{grid-template-columns:repeat(3,1fr)}
   .steprow{grid-template-columns:auto 1fr;gap:6px 14px}
   .steprow__name{grid-column:2}
   .steprow__desc{grid-column:2}
@@ -479,7 +495,6 @@ button,input{font:inherit;color:inherit}
 
   .worries{margin-top:44px}
   .worry{padding:18px 20px;gap:12px}
-  .worry:hover{transform:none}
   .worry__txt{font-size:14px}
   .worries__closing{margin-top:46px}
 
@@ -501,7 +516,7 @@ button,input{font:inherit;color:inherit}
   .case__row{grid-template-columns:1fr;gap:8px;padding:18px 20px}
 
   .mini{margin-top:52px}
-  .chips{grid-template-columns:repeat(2,1fr)}
+  .experts{grid-template-columns:repeat(2,1fr)}
   .form__grid{grid-template-columns:1fr}
   .formbox{padding:30px 22px 28px;margin-top:40px}
 
@@ -512,7 +527,7 @@ button,input{font:inherit;color:inherit}
 }
 
 @media (max-width:339px){
-  .chips{grid-template-columns:1fr}
+  .experts{grid-template-columns:1fr}
 }
 
 /* =========================================================
@@ -530,20 +545,14 @@ button,input{font:inherit;color:inherit}
   padding:clamp(9px,0.8vw,15px) clamp(14px,1.25vw,24px);
   border:1px solid var(--line);border-radius:100px;background:#fff;
 }
-.flow li:not(:last-child)::after{
-  content:"";margin-left:clamp(10px,1vw,19px);
-  width:clamp(14px,1.1vw,21px);height:1px;background:var(--line);
-}
-.flow li:last-child{border-color:rgba(0,140,255,.45);color:var(--blue);background:rgba(0,140,255,.05)}
+
 
 .values{margin-top:clamp(40px,4.6vw,88px);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,1.6vw,30px)}
 .value{
   position:relative;background:var(--grey);border:1px solid var(--line);border-radius:var(--radius);
   padding:clamp(28px,2.4vw,46px) clamp(22px,2vw,38px) clamp(24px,2vw,38px);
   display:flex;flex-direction:column;
-  transition:transform .32s var(--ease),box-shadow .32s var(--ease),border-color .32s;
 }
-.value:hover{transform:translateY(-6px);border-color:rgba(0,140,255,.4);box-shadow:0 22px 50px rgba(3,15,29,.1)}
 .value__no{color:var(--gold);font-weight:800;font-size:clamp(15px,1.18vw,22px);letter-spacing:.02em}
 /* 제목이 한 줄인 카드와 두 줄인 카드의 본문 시작선을 맞춘다 */
 .value__title{margin-top:clamp(12px,0.85vw,16px);font-size:clamp(18px,1.39vw,25.5px);font-weight:800;letter-spacing:-.03em;line-height:1.42;min-height:2.84em}
@@ -653,7 +662,6 @@ button,input{font:inherit;color:inherit}
   border:1px solid rgba(255,255,255,.13);border-radius:10px;background:rgba(255,255,255,.025);
   transition:border-color .3s,background .3s;
 }
-.do:hover{border-color:rgba(0,140,255,.45);background:rgba(0,140,255,.05)}
 .do__title{font-size:clamp(15px,1.11vw,21px);font-weight:700;letter-spacing:-.03em}
 .do__title b{color:var(--blue);font-weight:800;margin-right:12px}
 .do__txt{margin-top:clamp(9px,0.8vw,15px);font-size:clamp(13px,0.94vw,18px);line-height:1.82;color:rgba(255,255,255,.72)}
@@ -704,7 +712,6 @@ button,input{font:inherit;color:inherit}
   .value__title br{display:none}
   .value__title{min-height:0}
   .value__desc{min-height:0}
-  .chips{justify-content:stretch}
   .checks{grid-template-columns:1fr}
   .need{grid-template-columns:1fr}
   .siblings{grid-template-columns:repeat(2,1fr)}
@@ -712,10 +719,8 @@ button,input{font:inherit;color:inherit}
 
 @media (max-width:860px){
   .flow{gap:8px}
-  .flow li:not(:last-child)::after{margin-left:8px;width:12px}
   .case__tabs{flex-direction:row;flex-wrap:wrap}
   .case__tab{flex:1 1 auto;min-width:calc(50% - 5px);padding:14px 16px}
-  .value:hover{transform:none}
 
   .bottombar{
     display:flex;position:fixed;left:0;right:0;bottom:0;z-index:95;gap:8px;

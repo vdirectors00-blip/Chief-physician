@@ -148,7 +148,7 @@
         <li class="step"><span class="step__dot">01</span><span class="step__label">진단</span></li>
         <li class="step"><span class="step__dot">02</span><span class="step__label">전략</span></li>
         <li class="step"><span class="step__dot">03</span><span class="step__label">실행</span></li>
-        <li class="step is-active"><span class="step__dot">04</span><span class="step__label">성장관리</span></li>
+        <li class="step"><span class="step__dot">04</span><span class="step__label">성장관리</span></li>
       </ol>
     </div>
 
@@ -419,15 +419,48 @@
     </p>
 
     <h3 class="mini reveal">전문가 협업 분야</h3>
-    <ul class="chips reveal">
-      <li class="chip">법률</li>
-      <li class="chip">세무</li>
-      <li class="chip">노무</li>
-      <li class="chip">경영전략</li>
-      <li class="chip">특허·지식재산권</li>
-      <li class="chip">기업가치평가</li>
-      <li class="chip">부동산·감정평가</li>
-      <li class="chip">기업마케팅</li>
+    <!-- ============================================================
+         협업 전문가 프로필 자리.
+         사진과 이름을 받으면 각 카드에서
+         · .expert__ph 안의 <svg> 를 <img src="..." alt=""> 로 바꾸고
+         · .expert__field 아래에 <p class="expert__name">이름 직함</p>
+           <p class="expert__org">소속</p> 두 줄을 추가하면 됩니다.
+         자격사의 고유 업무를 직접 수행하는 것처럼 보이지 않도록
+         "협업" 표기를 지운 채로 쓰지 마십시오.
+         ============================================================ -->
+    <ul class="experts reveal">
+      <li class="expert">
+        <div class="expert__ph" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v16"/><path d="M5 7h14"/><path d="M5 7L2.5 13h5z"/><path d="M19 7l-2.5 6h5z"/><path d="M8 20h8"/></svg></div>
+        <p class="expert__field">법률</p>
+      </li>
+      <li class="expert">
+        <div class="expert__ph" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8.5 7.5h7"/><path d="M8.5 11.5h2M13.5 11.5h2"/><path d="M8.5 15.5h2M13.5 15.5h2"/></svg></div>
+        <p class="expert__field">세무</p>
+      </li>
+      <li class="expert">
+        <div class="expert__ph" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.4"/><path d="M5.5 20c0-3.3 2.9-5.6 6.5-5.6s6.5 2.3 6.5 5.6"/></svg></div>
+        <p class="expert__field">노무</p>
+      </li>
+      <li class="expert">
+        <div class="expert__ph" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19h16"/><path d="M6.5 19v-5"/><path d="M11 19V8"/><path d="M15.5 19v-8"/><path d="M20 19V5"/></svg></div>
+        <p class="expert__field">경영전략</p>
+      </li>
+      <li class="expert">
+        <div class="expert__ph" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5a4.5 4.5 0 0 0-2.6 8.2c.5.4.8 1 .8 1.6v.7h3.6v-.7c0-.6.3-1.2.8-1.6A4.5 4.5 0 0 0 12 3.5z"/><path d="M10.2 17.5h3.6"/><path d="M10.8 20h2.4"/></svg></div>
+        <p class="expert__field">특허·지식재산권</p>
+      </li>
+      <li class="expert">
+        <div class="expert__ph" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.2"/><path d="M12 12V3.8"/><path d="M12 12l6.4 5.1"/></svg></div>
+        <p class="expert__field">기업가치평가</p>
+      </li>
+      <li class="expert">
+        <div class="expert__ph" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3.5 20.5h17"/><path d="M6 20.5V8.5L12 5l6 3.5v12"/><path d="M10 20.5v-4.5h4v4.5"/><path d="M9.5 11h1.2M13.3 11h1.2"/></svg></div>
+        <p class="expert__field">부동산·감정평가</p>
+      </li>
+      <li class="expert">
+        <div class="expert__ph" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 10.5v3a1.5 1.5 0 0 0 1.5 1.5H8l6 4V6.5l-6 4H5.5A1.5 1.5 0 0 0 4 12z"/><path d="M17.5 9.5a4 4 0 0 1 0 5"/></svg></div>
+        <p class="expert__field">기업마케팅</p>
+      </li>
     </ul>
 
     <h3 class="mini reveal">핵심 포지셔닝</h3>
