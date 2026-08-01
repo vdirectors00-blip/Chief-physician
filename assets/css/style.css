@@ -29,9 +29,9 @@
   --line:#e6e9ee;
   --txt:#111820;
   --txt-sub:#5b6675;
-  /* 시안(1920 기준) 본문 폭 1420 = 74%, 섹션 상하 여백 약 300 = 15.5vw */
+  /* 시안(1920 기준) 본문 폭 1420 = 74%, 섹션 상하 여백 실측 평균 181px = 9.4vw */
   --wrap:1420px;
-  --pad:clamp(78px,14.5vw,280px);
+  --pad:clamp(70px,9.6vw,190px);
   --radius:14px;
   --shadow:0 18px 50px rgba(3,15,29,.10);
   --ease:cubic-bezier(.22,.7,.3,1);
@@ -78,8 +78,10 @@ button,input{font:inherit;color:inherit}
 .header.is-solid{background:rgba(3,15,29,.94);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(255,255,255,.07)}
 .header__inner{display:flex;align-items:center;gap:40px;height:76px}
 .logo{
-  font-size:19px;font-weight:800;letter-spacing:-.02em;color:#fff;white-space:nowrap;
+  display:flex;align-items:center;gap:10px;
+  font-size:18px;font-weight:800;letter-spacing:-.035em;color:#fff;white-space:nowrap;
 }
+.logo__mark{width:32px;height:32px;flex:0 0 auto}
 .nav{display:flex;align-items:center;gap:34px;margin-left:auto}
 .nav__link{
   position:relative;font-size:14.5px;font-weight:600;color:rgba(255,255,255,.82);
@@ -117,8 +119,8 @@ button,input{font:inherit;color:inherit}
 .hero__bg::after{
   content:"";position:absolute;inset:0;
   background:
-    radial-gradient(120% 80% at 50% 45%,rgba(0,0,0,.28) 0%,rgba(0,0,0,.62) 70%,rgba(3,15,29,.9) 100%),
-    linear-gradient(180deg,rgba(3,15,29,.72) 0%,rgba(3,15,29,0) 26%,rgba(3,15,29,0) 62%,rgba(3,15,29,.96) 100%);
+    radial-gradient(120% 80% at 50% 45%,rgba(0,0,0,.14) 0%,rgba(0,0,0,.34) 72%,rgba(3,15,29,.64) 100%),
+    linear-gradient(180deg,rgba(3,15,29,.58) 0%,rgba(3,15,29,0) 24%,rgba(3,15,29,0) 60%,rgba(3,15,29,.9) 100%);
 }
 @keyframes heroIn{from{transform:scale(1.12);opacity:.35}to{transform:scale(1.04);opacity:1}}
 .hero__inner{position:relative;text-align:center;padding:120px 24px 140px}
@@ -173,8 +175,15 @@ button,input{font:inherit;color:inherit}
 .body--center{text-align:center}
 .body--left{text-align:left}
 
+/* 접근 방식 안에 이어지는 3대 핵심 가치 */
+.approach__split{
+  margin-top:clamp(48px,4.6vw,92px);padding-top:clamp(44px,4.2vw,84px);
+  border-top:1px solid var(--line);
+}
+.approach__split .h2{margin-bottom:0}
+
 /* ================= 고민 리스트 ================= */
-.worries{margin-top:clamp(44px,5vw,96px);display:flex;flex-direction:column;gap:14px;max-width:830px;margin-left:auto;margin-right:auto}
+.worries{margin-top:clamp(40px,4vw,74px);display:flex;flex-direction:column;gap:15px;max-width:1010px;margin-left:auto;margin-right:auto}
 .worry{
   display:flex;align-items:flex-start;gap:clamp(12px,1.25vw,24px);
   padding:clamp(18px,1.55vw,30px) clamp(20px,2.1vw,40px);border:1px solid rgba(255,255,255,.12);border-radius:10px;
@@ -182,19 +191,19 @@ button,input{font:inherit;color:inherit}
   transition:border-color .3s,transform .3s var(--ease),background .3s;
 }
 .worry:hover{border-color:rgba(0,140,255,.55);transform:translateX(6px);background:rgba(0,140,255,.07)}
-.worry__no{color:var(--blue);font-weight:800;font-size:clamp(13px,1.01vw,19px);flex:none;line-height:1.7}
-.worry__txt{font-size:clamp(14px,1.04vw,20px);color:rgba(255,255,255,.92);line-height:1.7}
+.worry__no{color:var(--blue);font-weight:800;font-size:clamp(13px,1.12vw,21px);flex:none;line-height:1.7}
+.worry__txt{font-size:clamp(14.5px,1.17vw,22px);color:rgba(255,255,255,.92);line-height:1.7}
 .worries__closing{
-  margin-top:clamp(46px,6.2vw,120px);text-align:center;font-size:clamp(16px,1.55vw,30px);
+  margin-top:clamp(42px,4.6vw,88px);text-align:center;font-size:clamp(16px,1.55vw,30px);
   font-weight:700;line-height:1.85;letter-spacing:-.03em;color:#fff;
 }
 
 /* ================= 4단계 ================= */
-.steps{margin-top:clamp(52px,6.5vw,125px);background:var(--grey);border-radius:6px;padding:56px 40px}
+.steps{margin-top:clamp(46px,4.8vw,92px);background:var(--grey);border-radius:6px;padding:clamp(46px,5.6vw,108px) clamp(24px,3.2vw,62px)}
 .steps__list{display:grid;grid-template-columns:repeat(4,1fr);position:relative}
-.step{display:flex;flex-direction:column;align-items:center;gap:16px;position:relative}
+.step{display:flex;flex-direction:column;align-items:center;gap:clamp(14px,1.2vw,22px);position:relative}
 .step::before{
-  content:"";position:absolute;top:22px;left:50%;width:100%;height:1px;background:#1d2733;opacity:.35;
+  content:"";position:absolute;top:calc(clamp(46px,3.5vw,67px) / 2);left:50%;width:100%;height:1px;background:#1d2733;opacity:.35;
   transform:scaleX(0);transform-origin:0 50%;transition:transform .7s var(--ease);
 }
 .steps.is-in .step::before{transform:scaleX(1)}
@@ -202,11 +211,11 @@ button,input{font:inherit;color:inherit}
 .step:nth-child(3)::before{transition-delay:.3s}
 .step:last-child::before{display:none}
 .step__dot{
-  position:relative;z-index:1;width:44px;height:44px;border-radius:50%;
+  position:relative;z-index:1;width:clamp(46px,3.5vw,67px);height:clamp(46px,3.5vw,67px);border-radius:50%;
   display:grid;place-items:center;background:var(--grey);
-  border:1.5px solid #1d2733;font-size:13.5px;font-weight:700;color:#1d2733;
+  border:1.5px solid #1d2733;font-size:clamp(14px,1.06vw,20px);font-weight:700;color:#1d2733;
 }
-.step__label{font-size:14px;font-weight:600;color:#1d2733}
+.step__label{font-size:clamp(14px,1.12vw,21px);font-weight:600;color:#1d2733}
 .step.is-active .step__dot{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:0 8px 20px rgba(0,140,255,.35)}
 .step.is-active .step__label{color:var(--blue);font-weight:700}
 
@@ -326,7 +335,8 @@ button,input{font:inherit;color:inherit}
 
 /* ================= 푸터 ================= */
 .footer{background:#0a0e13;color:rgba(255,255,255,.5);padding:56px 0;border-top:1px solid rgba(255,255,255,.07)}
-.footer__logo{font-size:16px;font-weight:800;color:rgba(255,255,255,.86)}
+.footer__logo{display:flex;align-items:center;gap:10px;font-size:16px;font-weight:800;color:rgba(255,255,255,.86)}
+.footer__logo img{width:30px;height:30px}
 .footer__biz{margin-top:14px;font-size:12.8px;line-height:1.8}
 .footer__copy{margin-top:18px;font-size:12px;color:rgba(255,255,255,.34)}
 
@@ -348,6 +358,7 @@ button,input{font:inherit;color:inherit}
 .float__btn:hover{transform:translateY(-3px) scale(1.06)}
 .float__btn--tel{background:var(--blue)}
 .float__btn--kakao{background:#fee500;color:#3c1e1e}
+.float__btn--facebook{background:#1877f2;color:#fff}
 .float__btn--insta{background:linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7)}
 .float__btn--apply{background:var(--navy);border:1px solid rgba(255,255,255,.22)}
 .float__tip{
@@ -390,8 +401,8 @@ button,input{font:inherit;color:inherit}
   .nav__link{padding:15px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:15px}
   .nav__link::after{display:none}
 
-  .hero{min-height:88svh}
-  .hero__inner{padding:100px 24px 110px}
+  .hero{min-height:78svh}
+  .hero__inner{padding:84px 22px 76px}
   .hero__cta{flex-direction:column;align-items:stretch;gap:11px}
   .btn{height:52px;width:100%}
 
