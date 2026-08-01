@@ -565,6 +565,102 @@
   <a class="bottombar__btn bottombar__btn--apply" href="#apply" data-cta="bottom">기업 현황 1차 진단 신청</a>
 </div>
 
+<!-- ============================================================
+     메인 사진 고르기 (임시)
+     대표님이 사진을 고르시면 그 사진을 히어로에 박고
+     이 블록과 assets/img/_cand/ 폴더를 통째로 지웁니다.
+     ============================================================ -->
+<style>
+  .pickbar{
+    position:fixed;left:50%;transform:translateX(-50%);bottom:22px;z-index:150;
+    max-width:min(940px,94vw);padding:12px 16px 13px;border-radius:16px;
+    background:rgba(3,15,29,.93);border:1px solid rgba(255,255,255,.2);
+    box-shadow:0 18px 46px rgba(0,0,0,.45);backdrop-filter:blur(12px);
+  }
+  .pickbar__head{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+  .pickbar__title{font-size:13px;font-weight:700;color:#fff;letter-spacing:-.02em}
+  .pickbar__title b{color:var(--blue-soft);font-weight:700}
+  .pickbar__fold{
+    margin-left:auto;background:none;border:0;cursor:pointer;font-family:inherit;
+    color:rgba(255,255,255,.6);font-size:12px;font-weight:600;padding:4px 6px;
+  }
+  .pickbar__fold:hover{color:#fff}
+  .pickbar__row{display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .pickbar__row::-webkit-scrollbar{display:none}
+  .pickbar__row button{
+    flex:0 0 auto;border:0;cursor:pointer;border-radius:100px;padding:10px 15px;
+    font-family:inherit;font-size:13px;font-weight:700;letter-spacing:-.02em;
+    color:#fff;background:rgba(255,255,255,.11);white-space:nowrap;transition:background .2s;
+  }
+  .pickbar__row button:hover{background:rgba(255,255,255,.2)}
+  .pickbar__row button.is-on{background:var(--blue)}
+  .pickbar.is-folded .pickbar__row{display:none}
+  .pickbar.is-folded .pickbar__head{margin-bottom:0}
+  @media (max-width:860px){
+    .pickbar{bottom:74px;left:8px;right:8px;transform:none;max-width:none;padding:10px 12px 11px;border-radius:14px}
+    .pickbar__title{font-size:12px;line-height:1.45}
+    .pickbar__row button{padding:9px 12px;font-size:12px}
+  }
+</style>
+<div class="pickbar" id="pickbar">
+  <div class="pickbar__head">
+    <p class="pickbar__title"><b>메인 사진 고르기</b> · 눌러서 바꿔보시고 마음에 드는 것을 알려주세요</p>
+    <button type="button" class="pickbar__fold" id="pickFold">접기</button>
+  </div>
+  <div class="pickbar__row">
+    <button type="button" data-img="_cand/n1.webp">도시와 바다</button>
+    <button type="button" data-img="_cand/n3.webp">산업단지</button>
+    <button type="button" data-img="_cand/n4.webp">물류센터</button>
+    <button type="button" data-img="_cand/n2.webp">항만</button>
+    <button type="button" data-img="_cand/n6.webp">오피스 로비</button>
+    <button type="button" data-img="">도시 야경</button>
+  </div>
+</div>
+<script>
+(function () {
+  var bar = document.getElementById('pickbar');
+  if (!bar) return;
+  var bg = document.querySelector('.hero__bg');
+  var st = document.createElement('style');
+  document.head.appendChild(st);
+  var LIGHT = '.hero__bg::after{background:' +
+    'radial-gradient(52% 40% at 50% 44%,rgba(3,15,29,.46) 0%,rgba(3,15,29,.18) 62%,rgba(3,15,29,0) 100%),' +
+    'linear-gradient(180deg,rgba(3,15,29,.44) 0%,rgba(3,15,29,0) 22%,rgba(3,15,29,0) 60%,rgba(3,15,29,.6) 100%)' +
+    ' !important}';
+  var btns = bar.querySelectorAll('.pickbar__row button');
+
+  function pick(b) {
+    for (var i = 0; i < btns.length; i++) btns[i].classList.remove('is-on');
+    b.classList.add('is-on');
+    var img = b.getAttribute('data-img');
+    bg.style.backgroundImage = img ? 'url("assets/img/' + img + '")' : '';
+    /* 밝은 사진에는 옅은 겹칠을, 야경에는 원래 겹칠을 쓴다 */
+    st.textContent = img ? LIGHT : '';
+    try { localStorage.setItem('bvHeroPick', b.textContent); } catch (e) {}
+  }
+
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener('click', (function (b) {
+      return function () { pick(b); window.scrollTo({ top: 0, behavior: 'smooth' }); };
+    })(btns[i]));
+  }
+
+  var saved = null;
+  try { saved = localStorage.getItem('bvHeroPick'); } catch (e) {}
+  var start = btns[0];
+  if (saved) {
+    for (var j = 0; j < btns.length; j++) if (btns[j].textContent === saved) start = btns[j];
+  }
+  pick(start);
+
+  var fold = document.getElementById('pickFold');
+  fold.addEventListener('click', function () {
+    var folded = bar.classList.toggle('is-folded');
+    fold.textContent = folded ? '펼치기' : '접기';
+  });
+})();
+</script>
+
 <script src="assets/js/main.js"></script>
 </body>
 </html>
