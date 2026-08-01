@@ -1,2 +1,6 @@
+# 초안 단계라 검색 노출을 막아둔 상태입니다.
+# 정식 공개 시: 아래 Disallow 줄을 지우고, 각 페이지 head 의 robots noindex 태그도 함께 지우세요.
 User-agent: *
 Disallow: /
+
+Sitemap: https://vdirectors00-blip.github.io/Chief-physician/sitemap.xml

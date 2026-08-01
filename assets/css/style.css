@@ -286,7 +286,8 @@ button,input{font:inherit;color:inherit}
 .formbox__desc{margin-top:12px;font-size:13px;color:rgba(255,255,255,.6);line-height:1.75}
 .form__grid{margin-top:30px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .field{display:block}
-.field__label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.field__label{display:block;margin-bottom:8px;font-size:13px;font-weight:600;color:rgba(255,255,255,.68);letter-spacing:-.02em}
+.field__label em{font-style:normal;font-weight:500;color:rgba(255,255,255,.4)}
 .field input{
   width:100%;height:50px;padding:0 16px;border-radius:6px;
   background:#171c23;border:1px solid rgba(255,255,255,.16);color:#fff;
