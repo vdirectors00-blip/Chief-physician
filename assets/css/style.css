@@ -123,7 +123,7 @@ button,input{font:inherit;color:inherit}
 .hero__bg::after{
   content:"";position:absolute;inset:0;
   background:
-    radial-gradient(120% 80% at 50% 45%,rgba(0,0,0,.14) 0%,rgba(0,0,0,.34) 72%,rgba(3,15,29,.64) 100%),
+    radial-gradient(58% 46% at 50% 44%,rgba(3,15,29,.62) 0%,rgba(3,15,29,.28) 62%,rgba(3,15,29,0) 100%),radial-gradient(120% 84% at 50% 45%,rgba(0,0,0,.10) 0%,rgba(0,0,0,.30) 72%,rgba(3,15,29,.60) 100%),
     linear-gradient(180deg,rgba(3,15,29,.58) 0%,rgba(3,15,29,0) 24%,rgba(3,15,29,0) 60%,rgba(3,15,29,.9) 100%);
 }
 @keyframes heroIn{from{transform:scale(1.12);opacity:.35}to{transform:scale(1.04);opacity:1}}
@@ -258,21 +258,31 @@ button,input{font:inherit;color:inherit}
 /* ================= 서비스 카드 ================= */
 .cards{margin-top:clamp(44px,5.2vw,100px);display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
 .card{
-  background:#fff;color:var(--txt);border-radius:var(--radius);
+  background:#fff;color:var(--txt);border-radius:var(--radius);overflow:hidden;
   padding:clamp(30px,2.4vw,46px) clamp(22px,2vw,38px) clamp(24px,2vw,38px);display:flex;flex-direction:column;
   transition:transform .32s var(--ease),box-shadow .32s var(--ease);
 }
 .card:hover{transform:translateY(-8px);box-shadow:0 26px 60px rgba(0,0,0,.45)}
-.card__icon{
+.card__fig{margin:calc(-1 * clamp(30px,2.4vw,46px)) calc(-1 * clamp(22px,2vw,38px)) 0;position:relative;overflow:hidden}
+.card__fig img{width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform .6s var(--ease)}
+.card__fig::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,15,29,.06),rgba(3,15,29,.22))}
+.card:hover .card__fig img{transform:scale(1.06)}
+.card__icon{margin-top:clamp(-34px,-2.2vw,-26px);position:relative;z-index:1;background:#fff;box-shadow:0 6px 18px rgba(3,15,29,.14);
+
   width:clamp(46px,3.4vw,64px);height:clamp(46px,3.4vw,64px);border-radius:12px;
   display:grid;place-items:center;margin-bottom:clamp(16px,1.3vw,26px);
-  background:var(--gold-dim);border:1px solid rgba(200,151,58,.32);
+  border:1px solid rgba(200,151,58,.34);
 }
 .card__icon svg{width:56%;height:56%;fill:none;stroke:var(--gold);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.card:hover .card__icon{background:rgba(200,151,58,.2);border-color:rgba(200,151,58,.5)}
+.card:hover .card__fig{margin:calc(-1 * clamp(30px,2.4vw,46px)) calc(-1 * clamp(22px,2vw,38px)) 0;position:relative;overflow:hidden}
+.card__fig img{width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform .6s var(--ease)}
+.card__fig::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,15,29,.06),rgba(3,15,29,.22))}
+.card:hover .card__fig img{transform:scale(1.06)}
+.card__icon{margin-top:clamp(-34px,-2.2vw,-26px);position:relative;z-index:1;background:#fff;box-shadow:0 6px 18px rgba(3,15,29,.14);
+background:rgba(200,151,58,.2);border-color:rgba(200,151,58,.5)}
 .card__no{color:var(--gold);font-weight:800;font-size:clamp(15px,1.18vw,22px);letter-spacing:.02em}
 .card__title{margin-top:clamp(12px,0.85vw,16px);font-size:clamp(17px,1.32vw,25.5px);font-weight:800;letter-spacing:-.03em}
-.card__lead{margin-top:clamp(12px,0.9vw,17px);font-size:clamp(14px,0.97vw,18.7px);font-weight:600;line-height:1.72;color:#1a2430}
+.card__lead{margin-top:clamp(12px,0.9vw,17px);font-size:clamp(14.5px,1.06vw,20.4px);font-weight:600;line-height:1.72;color:#1a2430}
 .card__desc{margin-top:clamp(12px,0.9vw,17px);font-size:clamp(12.5px,0.85vw,16.3px);line-height:1.72;color:#6b7686}
 .card__more{
   margin-top:auto;padding-top:clamp(22px,1.6vw,31px);color:var(--blue);font-size:clamp(12.5px,0.89vw,17px);font-weight:700;
@@ -287,7 +297,7 @@ button,input{font:inherit;color:inherit}
 .profile__photo img{width:100%;transition:transform .8s var(--ease)}
 .profile__photo:hover img{transform:scale(1.04)}
 .profile__title{font-size:clamp(20px,2.15vw,41px);font-weight:800;letter-spacing:-.035em;line-height:1.42}
-.profile__txt{margin-top:clamp(20px,1.8vw,34px);font-size:clamp(14px,1.01vw,19px);line-height:1.95;color:var(--txt-sub)}
+.profile__txt{margin-top:clamp(20px,1.8vw,34px);font-size:clamp(15px,1.14vw,22px);line-height:1.95;color:var(--txt-sub)}
 .tags{margin-top:38px;display:flex;flex-wrap:wrap;gap:10px}
 .tag{
   background:var(--navy);color:#fff;font-size:clamp(13px,0.94vw,18px);font-weight:600;
@@ -308,7 +318,7 @@ button,input{font:inherit;color:inherit}
 .steprow:hover{border-color:rgba(0,140,255,.5);background:rgba(0,140,255,.06)}
 .steprow__no{color:var(--blue);font-weight:800;font-size:clamp(13px,0.94vw,18px);letter-spacing:.04em;white-space:nowrap}
 .steprow__name{font-weight:700;font-size:clamp(14px,1.04vw,20px);letter-spacing:-.02em}
-.steprow__desc{font-size:clamp(13px,0.94vw,18px);color:rgba(255,255,255,.72);line-height:1.7}
+.steprow__desc{font-size:clamp(14px,1.07vw,20.5px);color:rgba(255,255,255,.72);line-height:1.7}
 .notice{
   margin-top:clamp(28px,3.2vw,62px);background:var(--blue-deep);border-radius:8px;
   padding:30px 24px;text-align:center;color:#fff;font-weight:700;
@@ -330,11 +340,8 @@ button,input{font:inherit;color:inherit}
 /* ================= 전문가 협업 ================= */
 .mini{margin-top:clamp(48px,5.6vw,108px);text-align:center;font-size:clamp(16px,1.18vw,23px);font-weight:700;letter-spacing:-.03em}
 .chips{margin-top:26px;display:grid;grid-template-columns:repeat(4,minmax(0,168px));gap:14px;justify-content:center}
-.chip{
-  background:var(--blue);color:#fff;text-align:center;font-weight:700;font-size:clamp(14px,1.01vw,19px);
-  padding:clamp(15px,1.5vw,28px) 8px;border-radius:4px;letter-spacing:-.03em;
-  transition:transform .25s var(--ease),background .25s;
-}
+.chip{display:grid;place-items:center;text-align:center;min-height:clamp(58px,4.4vw,87px);padding:0 14px;border-radius:8px;font-size:clamp(14px,1.06vw,20px);font-weight:700;letter-spacing:-.02em;background:rgba(3,15,29,.04);border:1px solid rgba(3,15,29,.12);color:var(--txt);transition:border-color .25s,background .25s,color .25s}
+.chip:hover{background:var(--gold-dim);border-color:rgba(200,151,58,.5);color:#6b4d12}
 .chip:hover{transform:translateY(-4px);background:#0a7ce0}
 .position{
   margin:26px auto 0;max-width:640px;background:var(--navy);color:#fff;
