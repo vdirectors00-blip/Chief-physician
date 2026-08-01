@@ -93,8 +93,13 @@ button,input{font:inherit;color:inherit}
 .hero__bg{
   position:absolute;inset:0;
   background:url("../img/hero.jpg") center 42%/cover no-repeat;
+  background-image:image-set(url("../img/hero.webp") type("image/webp"),url("../img/hero.jpg") type("image/jpeg"));
   transform:scale(1.04);
   animation:heroIn 1.6s var(--ease) both;
+}
+/* 4K·초광폭 화면에서는 더 큰 소스로 교체 */
+@media (min-width:2100px){
+  .hero__bg{background-image:image-set(url("../img/hero-4k.webp") type("image/webp"),url("../img/hero.jpg") type("image/jpeg"))}
 }
 .hero__bg::after{
   content:"";position:absolute;inset:0;
