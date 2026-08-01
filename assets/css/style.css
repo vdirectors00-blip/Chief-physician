@@ -223,7 +223,7 @@ button,input{font:inherit;color:inherit}
 /* ================= 고민 리스트 ================= */
 /* 섹션 안의 모든 블록은 제목과 같은 왼쪽 기준선에서 시작한다.
    가운데 정렬은 사진을 깐 선언 성격의 구간(히어로·선언 배너·최종 CTA)에서만 쓴다. */
-.worries{margin-top:clamp(40px,4vw,74px);display:flex;flex-direction:column;gap:15px}
+.worries{margin-top:clamp(40px,4vw,74px);display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(12px,1.1vw,18px)}
 .worry{
   display:flex;align-items:flex-start;gap:clamp(12px,1.25vw,24px);
   padding:clamp(18px,1.55vw,30px) clamp(20px,2.1vw,40px);border:1px solid rgba(255,255,255,.12);border-radius:10px;
@@ -238,11 +238,11 @@ button,input{font:inherit;color:inherit}
 }
 
 /* ================= 4단계 ================= */
-.steps{margin-top:clamp(46px,4.8vw,92px);background:var(--grey);border-radius:6px;padding:clamp(40px,4.4vw,84px) clamp(24px,3.2vw,62px)}
+.steps{margin-top:clamp(46px,4.8vw,92px);background:var(--grey);border-radius:12px;border:1px solid var(--line);padding:clamp(44px,4.8vw,88px) clamp(24px,3.2vw,62px)}
 .steps__list{display:grid;grid-template-columns:repeat(4,1fr);position:relative}
 .step{display:flex;flex-direction:column;align-items:center;gap:clamp(14px,1.2vw,22px);position:relative}
 .step::before{
-  content:"";position:absolute;top:calc(clamp(46px,3.5vw,67px) / 2);left:50%;width:100%;height:1px;background:#1d2733;opacity:.35;
+  content:"";position:absolute;top:calc(clamp(52px,3.9vw,76px) / 2);left:50%;width:100%;height:2px;  background:linear-gradient(90deg,rgba(200,151,58,.55),rgba(200,151,58,.2));opacity:1;
   transform:scaleX(0);transform-origin:0 50%;transition:transform .7s var(--ease);
 }
 .steps.is-in .step::before{transform:scaleX(1)}
@@ -250,11 +250,13 @@ button,input{font:inherit;color:inherit}
 .step:nth-child(3)::before{transition-delay:.3s}
 .step:last-child::before{display:none}
 .step__dot{
-  position:relative;z-index:1;width:clamp(46px,3.5vw,67px);height:clamp(46px,3.5vw,67px);border-radius:50%;
-  display:grid;place-items:center;background:var(--grey);
-  border:1.5px solid #1d2733;font-size:clamp(14px,1.06vw,20px);font-weight:700;color:#1d2733;
+  width:clamp(52px,3.9vw,76px);height:clamp(52px,3.9vw,76px);border-radius:50%;
+  display:grid;place-items:center;position:relative;z-index:1;
+  background:#fff;border:2px solid var(--gold);color:var(--gold);
+  font-size:clamp(14px,1.06vw,20px);font-weight:800;letter-spacing:.02em;
+  box-shadow:0 6px 16px rgba(200,151,58,.18);
 }
-.step__label{font-size:clamp(14px,1.12vw,21px);font-weight:600;color:#1d2733}
+.step__label{font-size:clamp(15px,1.22vw,23px);font-weight:700;letter-spacing:-.03em;color:var(--txt)}
 
 /* ================= 서비스 카드 ================= */
 .cards{margin-top:clamp(44px,5.2vw,100px);display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
@@ -311,14 +313,20 @@ button,input{font:inherit;color:inherit}
 .band__txt{color:#fff;font-size:clamp(19px,2.35vw,45px);font-weight:800;letter-spacing:-.035em;line-height:1.5}
 
 /* ================= 프로세스 ================= */
-.steplist{margin-top:clamp(44px,5vw,96px);display:flex;flex-direction:column;gap:12px}
+.steplist{margin-top:clamp(44px,5vw,96px);display:flex;flex-direction:column;gap:12px;position:relative}
 .steprow{
-  display:grid;grid-template-columns:96px 190px 1fr;align-items:center;gap:0 clamp(16px,1.4vw,27px);
+  position:relative;
+  display:grid;grid-template-columns:112px 190px 1fr;align-items:center;gap:0 clamp(16px,1.4vw,27px);
   padding:clamp(20px,1.7vw,32px) clamp(22px,2.1vw,40px);border:1px solid rgba(255,255,255,.13);border-radius:8px;
   background:rgba(255,255,255,.025);
 }
-.steprow__no{color:var(--blue);font-weight:800;font-size:clamp(13px,0.94vw,18px);letter-spacing:.04em;white-space:nowrap}
-.steprow__name{font-weight:700;font-size:clamp(14px,1.04vw,20px);letter-spacing:-.02em}
+.steprow__no{color:var(--gold-soft);font-weight:800;font-size:clamp(15px,1.14vw,22px);letter-spacing:.06em;white-space:nowrap}
+.steprow__name{font-weight:700;font-size:clamp(15px,1.14vw,22px);letter-spacing:-.03em}
+/* 단계가 이어진다는 느낌을 주는 세로선 */
+.steprow:not(:last-child)::after{
+  content:"";position:absolute;left:clamp(22px,2.1vw,40px);top:100%;height:12px;width:2px;
+  background:rgba(200,151,58,.35);
+}
 .steprow__desc{font-size:clamp(14px,1.07vw,20.5px);color:rgba(255,255,255,.72);line-height:1.7}
 .notice{
   margin-top:clamp(28px,3.2vw,62px);background:var(--blue-deep);border-radius:8px;
@@ -494,7 +502,7 @@ button,input{font:inherit;color:inherit}
   .hero__cta{flex-direction:column;align-items:stretch;gap:11px}
   .btn{height:52px;width:100%}
 
-  .worries{margin-top:44px}
+  .worries{margin-top:44px;grid-template-columns:1fr}
   .worry{padding:18px 20px;gap:12px}
   .worry__txt{font-size:14px}
   .worries__closing{margin-top:46px}
@@ -554,6 +562,12 @@ button,input{font:inherit;color:inherit}
   padding:clamp(28px,2.4vw,46px) clamp(22px,2vw,38px) clamp(24px,2vw,38px);
   display:flex;flex-direction:column;
 }
+.value__icon{
+  width:clamp(42px,3.1vw,58px);height:clamp(42px,3.1vw,58px);border-radius:12px;
+  background:#fff;border:1px solid rgba(200,151,58,.45);display:grid;place-items:center;
+  margin-bottom:clamp(14px,1.2vw,22px);
+}
+.value__icon svg{width:54%;height:54%;fill:none;stroke:var(--gold);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .value__no{color:var(--gold);font-weight:800;font-size:clamp(15px,1.18vw,22px);letter-spacing:.02em}
 /* 제목이 한 줄인 카드와 두 줄인 카드의 본문 시작선을 맞춘다 */
 .value__title{margin-top:clamp(12px,0.85vw,16px);font-size:clamp(18px,1.39vw,25.5px);font-weight:800;letter-spacing:-.03em;line-height:1.42;min-height:2.84em}
