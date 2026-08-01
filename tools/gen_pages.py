@@ -22,6 +22,25 @@ PRESET = {'policy-fund':'정책자금','gov-program':'정부지원사업','certi
 PHOTO = {'policy-fund':'svc-fund','gov-program':'svc-gov','certification':'svc-cert',
          'incorporation':'svc-inc','export':'svc-export','asset':'svc-asset'}
 
+
+# 상세 6페이지가 같은 틀로 읽히지 않도록 섹션 제목을 서비스마다 다르게 둔다
+DO_TITLE = {
+ 'policy-fund':'조달은 이 순서로 갑니다',
+ 'gov-program':'선정까지 이렇게 준비합니다',
+ 'certification':'인증은 이 순서로 밟습니다',
+ 'incorporation':'전환은 이렇게 진행합니다',
+ 'export':'수출은 이 순서로 만듭니다',
+ 'asset':'매입은 이렇게 접근합니다',
+}
+CHECK_TITLE = {
+ 'policy-fund':'심사에서 보는 것',
+ 'gov-program':'평가에서 보는 것',
+ 'certification':'인증마다 보는 것이 다릅니다',
+ 'incorporation':'전환 방식 세 가지',
+ 'export':'먼저 갖춰야 하는 것',
+ 'asset':'취득 전에 확인할 것',
+}
+
 NOTE = ('이 페이지의 내용은 공개된 제도 안내를 기준으로 정리한 것입니다. '
         '지원 요건과 금리, 한도, 일정은 사업별 공고와 기관 심사에 따라 달라집니다. '
         '세무, 법률, 감정평가 등 자격이 필요한 업무는 해당 분야 전문가와 협업하여 진행합니다.')
@@ -274,7 +293,7 @@ def build(p, others):
     h.append('    </ul>\n  </div>\n</section>\n\n')
 
     h.append('<section class="sec sec--navy">\n  <div class="container">\n')
-    h.append('    <h2 class="h2 h2--left reveal">무엇을 하는가</h2>\n')
+    h.append('    <h2 class="h2 h2--left reveal">' + DO_TITLE[p['slug']] + '</h2>\n')
     h.append('    <div class="dolist">\n')
     for i, (t, d) in enumerate(p['do'], 1):
         h.append('      <div class="do reveal">\n')
@@ -284,7 +303,7 @@ def build(p, others):
     h.append('    </div>\n  </div>\n</section>\n\n')
 
     h.append('<section class="sec sec--light">\n  <div class="container">\n')
-    h.append('    <h2 class="h2 h2--dark h2--left reveal">무엇을 기준으로 판단하는가</h2>\n')
+    h.append('    <h2 class="h2 h2--dark h2--left reveal">' + CHECK_TITLE[p['slug']] + '</h2>\n')
     h.append('    <div class="checks">\n')
     for t, d in p['check']:
         h.append('      <div class="check reveal">\n        <p class="check__title">%s</p>\n        <p class="check__txt">%s</p>\n      </div>\n' % (t, d))
