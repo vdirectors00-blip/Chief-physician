@@ -11,6 +11,29 @@
 <meta property="og:description" content="기업인증을 단순한 인증 취득이 아니라 기업 성장 전략과 연결합니다.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="../assets/css/style.css">
+<!-- ============================================================
+     TODO:GA4  구글 애널리틱스 측정 ID (G- 로 시작) 를 아래 따옴표 안에 넣으면
+     수집이 시작됩니다. 비워두면 아무것도 불러오지 않고 전송하지도 않습니다.
+     TODO:WEBHOOK  신청 접수를 문자·알림톡으로 받으려면 중계 주소를 넣습니다.
+     (정적 사이트라 알리고를 직접 호출할 수 없어 중계가 하나 필요합니다)
+     ============================================================ -->
+<script>
+  window.GA_ID = "";
+  window.LEAD_WEBHOOK = "";
+</script>
+<script>
+  (function () {
+    var id = window.GA_ID;
+    if (!id || id.indexOf("G-") !== 0) return;
+    var s = document.createElement("script");
+    s.async = 1; s.src = "https://www.googletagmanager.com/gtag/js?id=" + id;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { dataLayer.push(arguments); };
+    gtag("js", new Date());
+    gtag("config", id);
+  })();
+</script>
 </head>
 <body class="is-sub">
 
@@ -128,7 +151,51 @@
   <div class="container endcta">
     <h2 class="h2 h2--center reveal">기업인증, 우리 회사도 될까요?</h2>
     <p class="body body--center reveal">기업 현황을 남겨주시면 내용을 확인한 후 1차 상담을 통해 현재 가장 먼저 검토해야 할 과제를 함께 살펴보겠습니다.</p>
-    <a class="btn btn--primary reveal" href="../index.html#apply">기업 현황 1차 진단 신청</a>
+    <div class="formbox reveal">
+      <div class="formbox__body" id="applyFormBody">
+        <h3 class="formbox__title">기업 성장 가능성 사전진단 신청</h3>
+        <p class="formbox__desc">기업 현황을 남겨주시면 내용을 확인한 후 1차 상담을 통해 현재 가장 먼저 검토해야 할 과제를 함께 살펴보겠습니다.</p>
+
+        <!-- TODO:FORM  Formspree 가입 후 아래 action 을 발급받은 주소로 교체하면 메일로 접수됩니다. -->
+        <form class="form" id="applyForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate data-preset="기업인증">
+          <input type="hidden" name="_subject" value="[경영주치의] 기업 현황 1차 진단 신청">
+          <input type="hidden" name="유입경로" value="">
+          <div class="form__grid">
+            <label class="field"><span class="field__label">기업명</span><input type="text" name="기업명" placeholder="기업명" required></label>
+            <label class="field"><span class="field__label">대표자 · 담당자명</span><input type="text" name="대표자_담당자명" placeholder="대표자 · 담당자명" required></label>
+            <label class="field"><span class="field__label">연락처</span><input type="tel" name="연락처" placeholder="연락처" required></label>
+            <label class="field"><span class="field__label">소재지</span><input type="text" name="소재지" placeholder="소재지 (선택)"></label>
+            <label class="field"><span class="field__label">연 매출</span><input type="text" name="연매출" placeholder="연 매출 (선택)"></label>
+            <label class="field"><span class="field__label">세금 완납 여부</span><input type="text" name="세금완납여부" placeholder="세금 완납 여부 (선택)"></label>
+          </div>
+
+          <p class="form__legend">상담 분야 (중복 선택 가능)</p>
+          <div class="form__chips">
+            <label class="pick"><input type="checkbox" name="상담분야" value="정책자금"><span>정책자금</span></label>
+            <label class="pick"><input type="checkbox" name="상담분야" value="정부지원사업"><span>정부지원사업</span></label>
+            <label class="pick"><input type="checkbox" name="상담분야" value="기업인증"><span>기업인증</span></label>
+            <label class="pick"><input type="checkbox" name="상담분야" value="법인전환"><span>법인전환</span></label>
+            <label class="pick"><input type="checkbox" name="상담분야" value="수출 바이어 매칭"><span>수출 바이어 매칭</span></label>
+            <label class="pick"><input type="checkbox" name="상담분야" value="사옥 공장 매입"><span>사옥 공장 매입</span></label>
+            <label class="pick"><input type="checkbox" name="상담분야" value="기타"><span>기타</span></label>
+          </div>
+
+          <label class="agree">
+            <input type="checkbox" name="개인정보동의" value="동의" required>
+            <span>상담 진행을 위한 <a href="../privacy.html" target="_blank" rel="noopener">개인정보 수집·이용</a>에 동의합니다.</span>
+          </label>
+
+          <button type="submit" class="btn btn--primary btn--block">기업 현황 1차 진단 신청</button>
+          <p class="form__msg" id="applyFormMsg" role="status"></p>
+        </form>
+      </div>
+
+      <div class="formdone" id="applyFormDone" hidden>
+        <div class="formdone__mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <p class="formdone__title">신청이 접수되었습니다.</p>
+        <p class="formdone__txt">남겨주신 기업 현황을 확인한 뒤 연락드리겠습니다.<br>먼저 확인이 필요하시면 전화로 문의해 주셔도 됩니다.</p>
+      </div>
+    </div>
     <div class="siblings reveal">
       <a href="policy-fund.html">정책자금 조달</a>
       <a href="gov-program.html">정부지원사업</a>
